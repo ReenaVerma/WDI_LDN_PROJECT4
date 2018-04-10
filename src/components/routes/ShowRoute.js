@@ -1,18 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 class ShowRoute extends React.Component {
 
   state = {
-    user: null
+    user: null,
+    lastLogin: null
   };
 
   // && wait for user to show and then render it
   //  if left is false, stop.  if true run everything else.
   componentDidMount(){
     axios.get(`/api/users/${this.props.userId}`)
-      .then(res => this.setState({ user: res.data }, () => console.log(res.data)),
-      );
+      .then(res => this.setState({ user: res.data }, () => {
+        const now = moment();
+        this.setState({ lastLogin: moment(this.state.user.last_login_date).from(now) });
+      }));
+
   }
 
 
@@ -23,7 +28,7 @@ class ShowRoute extends React.Component {
 
         <div className="container">
           <h1 className="title has-text-centered has-text-primary">Individual User Profile:</h1>
-
+          <h1 className="title">Last Login: {this.state.lastLogin}</h1>
           <ul className="columns is-multiline">
             {this.state.user &&
               <li className="column is-one-third">

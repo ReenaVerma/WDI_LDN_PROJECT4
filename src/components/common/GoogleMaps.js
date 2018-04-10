@@ -27,13 +27,13 @@ class GoogleMap extends React.Component {
 
   }
 
-  componentWillReceiveProps({ center, zoom }) {
-    //like scope.$watch
-    // console.log(props);
-    this.map.setCenter(center);
-    this.map.setZoom(zoom);
-    // marker prop here
-  }
+  // componentWillReceiveProps({ center, zoom }) {
+  //   //like scope.$watch
+  //   // console.log(props);
+  //   this.map.setCenter(center);
+  //   this.map.setZoom(zoom);
+  //   // marker prop here
+  // }
 
 
   getLocation = () => {

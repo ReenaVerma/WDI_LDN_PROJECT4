@@ -7,6 +7,7 @@ function indexRoute(req, res, next) {
     .catch(next);
 }
 
+
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
@@ -21,7 +22,7 @@ function commentsCreateRoute(req, res, next) {
   //set the currentuser as the owner of the post created
   console.log(req.body);
 
-  // find the popup by ID
+  // find the user by ID
   User.findById(req.params.id)
     .then(users => {
       // push comment into the the body area of the popup page

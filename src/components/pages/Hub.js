@@ -22,6 +22,7 @@ class Hub extends React.Component {
       headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
     };
 
+    // axios.get('https://developers.zomato.com/api/v2.1/collections?lat=51.5148&lon=0.0651&count=10', config)
     axios.get('https://developers.zomato.com/api/v2.1/collections?lat=51.5148&lon=0.0651&count=10', config)
       .then(res => {
         console.log(res.data.collections);

@@ -7,10 +7,13 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   // gender: { type: String, required: true },
-  date: { type: String, required: true },
-  travelling: { type: String, required: true }
+  date: { type: String },
+  travelling: { type: String },
   // interests: { type: String, required: true }
+  last_login_date: { type: Date }
 });
+
+
 
 // store password here and set password confirmation
 userSchema
@@ -19,6 +22,9 @@ userSchema
     this._passwordConfirmation = passwordConfirmation;
   });
 
+// UserSchema.statics.login = function login(id, callback) {
+//    return this.findByIdAndUpdate(id, { $set : { 'last_login_date' : Date.now() }, { new : true }, callback);
+// };
 
 // if the password doesn't match, or has been changed, don't login/validate
 userSchema.pre('validate', function checkPasswords(next) {

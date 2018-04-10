@@ -19,17 +19,34 @@ function login(req, res, next) {
       }
 
       const token = jwt.sign({ sub: user._id }, secret, { expiresIn: '24h' });
+      // const date = user.updateLastLoginTime(user._id, Date.now());
+      // console.log('login date is :' + date);
       res.json({ user, token, message: `Welcome back ${user.username}` });
+      user.last_login_date = Date.now();
+      user.save();
     })
+
+    // .then(user => {
+    //   const update = {
+    //     last_login_date: Date.now()
+    //   };
+    //   const options = {
+    //        new: true
+    //    };
+    //    User.findOneAndUpdate(user, update, options, function(err, user) {
+    //        if (err) {
+    //            console.log(update);
+    //        }
+    // })
     .catch(next);
 }
 
-// PROFILE PAGE
-// function show(req, res, next) {
-//   User.findById(req.params.id)
-//     .then(user => res.json(user))
-//     .catch(next);
-// }
+// set the current login time, when the user logs in.
+// save it in the model.
+// when user is logged out, you can still see their last log in time.
+// display this on homepage map pins, user search page and user profile pages
+// when they Login
+
 
 
 module.exports = {
