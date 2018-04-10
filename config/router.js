@@ -12,18 +12,26 @@ router.route('/users')
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show);
+  .get(users.show)
+  .put(users.update);
 
-// CREATE COMMENTS
-router.route('/users/:id/comments')
-  .post(users.commentsCreate);
 
+// router.route('/hub')
+//   .get(users.show);
+
+// my user profile routes
 router.route('/register')
   .post(auth.register);
 
 router.route('/login')
   .post(auth.login);
 
+// CREATE COMMENTS
+router.route('/users/:id/comments')
+  .post(users.commentsCreate);
+
+
+// darksky api
 router.get('/forecast', darksky.forecast);
 
 router.route('/*')

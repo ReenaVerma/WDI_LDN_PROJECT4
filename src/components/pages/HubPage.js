@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+// import auth from '../../../controllers/auth';
+// import moment from 'moment';
 import '../../assets/scss/style.scss';
 
 import GoogleMaps from '../../components/common/GoogleMaps';
@@ -9,15 +11,13 @@ import GoogleMaps from '../../components/common/GoogleMaps';
 class Hub extends React.Component {
 
   state =  {
-    places: null
-    // country: {
-    //   latlng: [51.51, -0.08]
-    // }
-
+    places: null,
+    user: null
   }
 
 
   componentDidMount() {
+
     const config = {
       headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
     };
@@ -29,7 +29,11 @@ class Hub extends React.Component {
         this.setState(
           { places: res.data.collections });
       });
+
+
+
   }
+
 
 
   render() {
@@ -41,15 +45,16 @@ class Hub extends React.Component {
     return (
       <main>
 
+
+
         <section>
-          <h1 className="title">Hub Page with map and travel apis (post login) </h1>
-          {/* <GoogleMaps center={{lat: this.state.country.latlng[0], lng: this.state.country.latlng[1] }} zoom={8}/> */}
+          <h1 className="title">Your Hub Page with map and travel apis (post login) </h1>
+          {/* <Show userId={this.props.match.params.id} /> */}
+
           <GoogleMaps />
         </section>
 
-        <section>
-          {/* <GetLocation /> */}
-        </section>
+
 
         <section>
 
@@ -71,8 +76,6 @@ class Hub extends React.Component {
                           <Link className="button is-primary" to={place.collection.url}>view more!</Link>
                         </div>
 
-
-
                       </figure>
                     </div>
                   </div>
@@ -80,6 +83,7 @@ class Hub extends React.Component {
             </ul>
           </div>
         </section>
+
 
 
       </main>

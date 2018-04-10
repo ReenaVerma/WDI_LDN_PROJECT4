@@ -15,6 +15,17 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function updateRoute(req, res, next) {
+  User
+    .findById(req.params.id)
+    .then(user => {
+      user = Object.assign(user, req.body);
+      return user.save();
+    })
+    .then(users => res.json(users))
+    .catch(next);
+}
+
 
 // CREATE FUNCTION FOR COMMENT
 function commentsCreateRoute(req, res, next) {
@@ -46,5 +57,6 @@ function commentsCreateRoute(req, res, next) {
 module.exports = {
   index: indexRoute,
   show: showRoute,
+  update: updateRoute,
   commentsCreate: commentsCreateRoute
 };

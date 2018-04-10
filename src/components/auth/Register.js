@@ -1,31 +1,40 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
+import ReactFilestack from 'filestack-react';
 
 
 class Register extends React.Component {
 
 
-  state = {}
+  state = {
 
-  // getInitialState = () => {
-  //   return {
-  //     selectedOption: 'option1'
-  //   };
+  }
+
+
+  // filestack = () => {
+  //   // e.preventDefault();
+  //   const client = filestack.init('A8LoppjzCQMKU2LknClJcz');
+  //
+  //   client.pick({
+  //     fromSources: ['local_file_system','imagesearch','facebook','instagram','webcam'],
+  //     accept: ['image/*'],
+  //     maxFiles: 1
+  //
+  //   }).then(function(result) {
+  //     const fileUrl = result.filesUploaded[0].url;
+  //     console.log('file url is: ' + fileUrl);
+  //   });
   // }
 
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value }, () => console.log(this.state));
-
   };
   // console.log(e.target.value);
 
   handleSubmit = (e) => {
-    // prevent default behaviour
     e.preventDefault();
-    // make a post request to /api/Register
-    //send the form data
     axios.post('/api/register', this.state)
       // .then(res => localStorage.setItem('token', res.data.token))
       .then(res => Auth.setToken(res.data.token))
@@ -52,6 +61,30 @@ class Register extends React.Component {
             onChange={this.handleChange}
           />
         </div>
+
+        {/* FILESTACK */}
+        {/* <div className="field">
+          <label htmlFor="image">Upload an image</label>
+          <input
+            type="hidden"
+            placeholder="upload a profile pic!"
+            name="image"
+            onChange={this.handleChange}
+            onClick={this.filestack()}
+
+          />
+          <a className="button is-large has-text-centered is-primary" id="upload">
+            <span className="icon is-medium"><i className="fab fa-github"></i></span>
+            <span>Upload your photos</span>
+          </a>
+        </div> */}
+        <ReactFilestack
+          apikey={'A8LoppjzCQMKU2LknClJcz'}
+          buttonText="Click me"
+          buttonClass="classname"
+          // options={options}
+          onSuccess={res => this.setState({ image: res.filesUploaded[0].url} )}
+        />
 
         {/* GENDER */}
         {/* <div className="field">

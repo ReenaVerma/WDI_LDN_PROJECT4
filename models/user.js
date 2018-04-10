@@ -3,14 +3,19 @@ const bcrypt = require('bcrypt');
 
 // user model
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  username: { type: String, unique: true, required: true },
+  email: { type: String, unique: true, required: true },
+  password: { type: String, required: true  },
   // gender: { type: String, required: true },
-  date: { type: String },
-  travelling: { type: String },
+  date: { type: String, required: true  },
+  travelling: { type: String, required: true },
   // interests: { type: String, required: true }
-  last_login_date: { type: Date }
+  last_login_date: { type: Date },
+  userLocation: {
+    lat: { type: Number },
+    lng: { type: Number }
+  },
+  image: { type: String, required: true }
 });
 
 

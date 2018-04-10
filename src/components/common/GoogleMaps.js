@@ -1,12 +1,15 @@
 /* global google */
 
 import React from 'react';
+import axios from 'axios';
+import Auth from '../../lib/Auth';
 // import GetLocation from '../../components/common/GetLocation';
 
 
 class GoogleMap extends React.Component {
 
   state = {
+    users: [],
     userLocation: '',
     location: {
       lat: 11.51,
@@ -16,15 +19,37 @@ class GoogleMap extends React.Component {
 
   componentDidMount() {
     this.getLocation();
+
     // console.log(this.mapDiv, google);
     console.log(this.state.location);
     this.map = new google.maps.Map(this.mapDiv, {
       center: this.state.location,
-      zoom: 14
+      zoom: 8
     });
     //update markers in
     this.infoWindow = new google.maps.InfoWindow;
+    this.getUsers();
 
+  }
+
+  getUsers() {
+    axios.get('/api/users')
+      .then(res => this.setState({ users: res.data }, () =>  {
+        console.log('USERS', this.state.users);
+        this.state.users.map(user => {
+          console.log('USER LOCATION', user.userLocation);
+          if (user.userLocation) {
+            // return new google.maps.Marker({
+            const marker = new google.maps.Marker({
+              // map: this.map,
+              position: user.userLocation,
+              zoom: 13
+            });
+            marker.setMap(this.map);
+          }
+
+        });
+      }));
   }
 
   // componentWillReceiveProps({ center, zoom }) {
@@ -44,7 +69,7 @@ class GoogleMap extends React.Component {
 
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
-      console.log(userCurrentLat, userCurrentLng );
+
       //I now need to convert the lat and long in to an origin
       const latlng = {lat: userCurrentLat, lng: userCurrentLng};
       console.log('Lat n lng', latlng);
@@ -64,6 +89,34 @@ class GoogleMap extends React.Component {
             });
             // To add the marker to the map, call setMap();
             marker.setMap(that.map);
+            // update user with latest location
+            const userId = Auth.getPayload().sub;
+            axios.get(`/api/users/${userId}`)
+              .then(user => {
+                console.log('pre-save user', user);
+                user.userLocation = latlng;
+                return axios.put(`/api/users/${userId}`, user);
+              })
+              .then(res => console.log('new saved user', res.data))
+              .catch(err => console.error(err));
+
+            // moved find all users here
+            // axios.get('/api/users')
+            //   .then(res => this.setState({ users: res.data }, () =>  {
+            //     console.log(this.state.users);
+            //     console.log(this.state.userLocation);
+            //     this.state.users.map(user => {
+            //       // console.log(place);
+            //
+            //       // return new google.maps.Marker({
+            //       const marker = new google.maps.Marker({
+            //         map: this.map,
+            //         position: res.data.userLocation
+            //       });
+            //       marker.setMap(this.map);
+            //     });
+            //   }));
+
           } else {
             // not found
             console.log('No results found');

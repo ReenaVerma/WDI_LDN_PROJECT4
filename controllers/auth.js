@@ -11,6 +11,7 @@ function register(req, res, next) {
     .catch(next);
 }
 
+
 function login(req, res, next) {
   User.findOne({ email: req.body.email })
     .then(user => {
@@ -26,31 +27,30 @@ function login(req, res, next) {
       user.save();
     })
 
-    // .then(user => {
-    //   const update = {
-    //     last_login_date: Date.now()
-    //   };
-    //   const options = {
-    //        new: true
-    //    };
-    //    User.findOneAndUpdate(user, update, options, function(err, user) {
-    //        if (err) {
-    //            console.log(update);
-    //        }
-    // })
     .catch(next);
 }
 
-// set the current login time, when the user logs in.
-// save it in the model.
-// when user is logged out, you can still see their last log in time.
-// display this on homepage map pins, user search page and user profile pages
-// when they Login
+// HUB PAGE
+function show(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(next);
+}
 
+// UPDATE PROFILE PAGE
+function update(req, res, next) {
+  User.findById(req.params.id)
+    .then(user => Object.assign(user, req.body))
+    .then(user => user.save())
+    .then(user => res.json(user))
+    .catch(next);
+}
 
 
 module.exports = {
   register,
-  login
-  // show
+  login,
+  show,
+  update
+
 };
