@@ -1,6 +1,32 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const messageSchema = new mongoose.Schema({
+  content: { type: String },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+// using an id to refer to a user
+// looking for objectid data, then we say we want a USER object
+},  {
+  timestamps: true
+  // make sure you keep a record of when messages is Posted
+  // createdAt comes from here
+});
+
+messageSchema
+  .virtual('formattedDate')
+  .get(function getFormattedDate() {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return this.createdAt.getDate() + ' ' + monthNames[this.createdAt.getMonth()] + ' ' + this.createdAt.getFullYear();
+
+  });
+
+
+messageSchema.methods.isOwnedBy = function(user) {
+  // is this messages owned by this user?
+  return this.user && user._id.equals(this.user._id);
+  // if logged in user id, matches the object id
+};
+
 // user model
 const userSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
@@ -15,7 +41,8 @@ const userSchema = new mongoose.Schema({
     lat: { type: Number },
     lng: { type: Number }
   },
-  image: { type: String, required: true }
+  image: { type: String, required: true },
+  messages: [ messageSchema ]
 });
 
 
@@ -48,5 +75,7 @@ userSchema.pre('save', function hashPassword(next) {
 userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
+
+
 
 module.exports = mongoose.model('User', userSchema);

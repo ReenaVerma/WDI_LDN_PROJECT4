@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
+import '../../assets/scss/main.scss';
 
 class Home extends React.Component {
 
@@ -28,9 +29,19 @@ class Home extends React.Component {
   render() {
     return (
 
-      <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
+      // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
+      <section className="">
+        {/* 
+        <video loop muted autoPlay poster="" className="fullscreen-bg__video">
+          <source src="../../assets/images/vid2.mov" type="video/mov" />
+
+        </video> */}
+
 
         <div className="hero-body">
+
+
+
           <div className="container">
             <div className="columns is-centered">
               <div className="is-half has-text-centered">

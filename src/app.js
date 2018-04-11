@@ -24,26 +24,26 @@ class App extends React.Component {
 
 
       <BrowserRouter>
-        <main>
+
+
+
+        <section>
           <Navbar />
+          {/* <DarkSky /> */}
+          <Switch>
 
-          <section className="section">
-            <h1 className="title">Smart Travel</h1>
-            {/* <DarkSky /> */}
-            <Switch>
+            <Route path="/hub/:id" component={Show} />
+            <Route path="/users/:id" component={UserPage} />
+            <Route path="/users" component={SearchUsers} />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/hub" component={HubPage} />
+            <Route path="/" component={HomePage} />
 
-              <Route path="/hub/:id" component={Show} />
-              <Route path="/users/:id" component={UserPage} />
-              <Route path="/users" component={SearchUsers} />
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route path="/hub" component={HubPage} />
-              <Route path="/" component={HomePage} />
+          </Switch>
 
-            </Switch>
+        </section>
 
-          </section>
-        </main>
       </BrowserRouter>
 
     );

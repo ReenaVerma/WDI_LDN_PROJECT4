@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../lib/Auth';
 import { Link, withRouter } from 'react-router-dom';
+import '../../assets/scss/main.scss';
 
 // const Navbar = () => {
 

@@ -3,6 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
+import '../../assets/scss/main.scss';
 // import GetLocation from '../../components/common/GetLocation';
 
 
@@ -12,8 +13,8 @@ class GoogleMap extends React.Component {
     users: [],
     userLocation: '',
     location: {
-      lat: 11.51,
-      lng: 30.070
+      lat: 51.515642,
+      lng: -0.072407
     }
   };
 
@@ -24,7 +25,92 @@ class GoogleMap extends React.Component {
     console.log(this.state.location);
     this.map = new google.maps.Map(this.mapDiv, {
       center: this.state.location,
-      zoom: 8
+      zoom: 17,
+      styles:
+      [
+        {
+          'featureType': 'landscape',
+          'elementType': 'labels',
+          'stylers': [
+            {
+              'visibility': 'off'
+            }
+          ]
+        },
+        {
+          'featureType': 'transit',
+          'elementType': 'labels',
+          'stylers': [
+            {
+              'visibility': 'off'
+            }
+          ]
+        },
+        {
+          'featureType': 'poi',
+          'elementType': 'labels',
+          'stylers': [
+            {
+              'visibility': 'off'
+            }
+          ]
+        },
+        {
+          'featureType': 'water',
+          'elementType': 'labels',
+          'stylers': [
+            {
+              'visibility': 'off'
+            }
+          ]
+        },
+        {
+          'featureType': 'road',
+          'elementType': 'labels.icon',
+          'stylers': [
+            {
+              'visibility': 'off'
+            }
+          ]
+        },
+        {
+          'stylers': [
+            {
+              'hue': '#00aaff'
+            },
+            {
+              'saturation': -100
+            },
+            {
+              'gamma': 2.15
+            },
+            {
+              'lightness': 12
+            }
+          ]
+        },
+        {
+          'featureType': 'road',
+          'elementType': 'labels.text.fill',
+          'stylers': [
+            {
+              'visibility': 'on'
+            },
+            {
+              'lightness': 24
+            }
+          ]
+        },
+        {
+          'featureType': 'road',
+          'elementType': 'geometry',
+          'stylers': [
+            {
+              'lightness': 57
+            }
+          ]
+        }
+      ]
     });
     //update markers in
     this.infoWindow = new google.maps.InfoWindow;
@@ -39,13 +125,46 @@ class GoogleMap extends React.Component {
         this.state.users.map(user => {
           console.log('USER LOCATION', user.userLocation);
           if (user.userLocation) {
+
+
+            const image = {
+              url: user.image, // url
+              scaledSize: new google.maps.Size(60, 60), // scaled size
+              origin: new google.maps.Point(0,0) // origin
+              // anchor: new google.maps.Point(0, 0) // anchor
+            };
+
             // return new google.maps.Marker({
             const marker = new google.maps.Marker({
               // map: this.map,
               position: user.userLocation,
-              zoom: 13
+              zoom: 15,
+              icon: image
             });
             marker.setMap(this.map);
+
+
+            //HERE WE ARE DEFINING INFO WINDOWS
+            const photo = user.image;
+
+
+
+            const infoContent = `
+              <br/>
+              <strong>User: ${user.username}</strong><br/>
+              Lost logged in: ${user.last_login_date}<br/>
+              Travelling: ${user.travelling}<br/>
+              <img id="abi" src="${photo}">`;
+
+            const infoWindow = new google.maps.InfoWindow({
+              content: infoContent,
+              maxWidth: 200,
+              maxHeight: 100
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+              infoWindow.open(this.map, marker);
+            });
           }
 
         });
@@ -63,6 +182,7 @@ class GoogleMap extends React.Component {
 
   getLocation = () => {
 
+
     navigator.geolocation.getCurrentPosition(pos => {
 
       const that = this;
@@ -70,9 +190,15 @@ class GoogleMap extends React.Component {
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
 
+
       //I now need to convert the lat and long in to an origin
       const latlng = {lat: userCurrentLat, lng: userCurrentLng};
       console.log('Lat n lng', latlng);
+
+      //passing props info here, into page where this function is written (Hub Page)
+      this.props.setLocation(latlng);
+
+
 
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latlng}, function(results, status) {
@@ -82,6 +208,7 @@ class GoogleMap extends React.Component {
             that.userCurrentAddress = results[0].formatted_address;
             that.setState({userLocation: results[0].formatted_address});
             console.log('current address is: ' + that.userCurrentAddress);
+
             that.map.setCenter(latlng);
             const marker = new google.maps.Marker({
               position: latlng,
@@ -89,6 +216,9 @@ class GoogleMap extends React.Component {
             });
             // To add the marker to the map, call setMap();
             marker.setMap(that.map);
+
+
+
             // update user with latest location
             const userId = Auth.getPayload().sub;
             axios.get(`/api/users/${userId}`)
@@ -100,22 +230,7 @@ class GoogleMap extends React.Component {
               .then(res => console.log('new saved user', res.data))
               .catch(err => console.error(err));
 
-            // moved find all users here
-            // axios.get('/api/users')
-            //   .then(res => this.setState({ users: res.data }, () =>  {
-            //     console.log(this.state.users);
-            //     console.log(this.state.userLocation);
-            //     this.state.users.map(user => {
-            //       // console.log(place);
-            //
-            //       // return new google.maps.Marker({
-            //       const marker = new google.maps.Marker({
-            //         map: this.map,
-            //         position: res.data.userLocation
-            //       });
-            //       marker.setMap(this.map);
-            //     });
-            //   }));
+
 
           } else {
             // not found
@@ -141,8 +256,12 @@ class GoogleMap extends React.Component {
       // ref is a callback function and passes in element into the DOM.
       // then we pass in this.mapDIV to appear in the DOM as the element.
       <section>
-        <div className="google-map" ref={element => this.mapDiv = element}></div>
-        <div className="location">You are here: {this.state.userLocation}</div>
+        <div className="columns has-text-centered">
+          <div className="column">
+            <div className="location">You are here: {this.state.userLocation}</div>
+            <div className="google-map" ref={element => this.mapDiv = element}></div>
+          </div>
+        </div>
       </section>
     );
   }

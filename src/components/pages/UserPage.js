@@ -1,6 +1,7 @@
 import React from 'react';
 import ShowRoute from '../../components/routes/ShowRoute';
 import Comments from '../../components/common/Comments';
+import '../../assets/scss/main.scss';
 // const Timestamp = require('react-timestamp');
 
 
@@ -21,11 +22,7 @@ class IndividualUser extends React.Component {
       <section>
         <h1 className="title">Individual User Profile </h1>
         <ShowRoute userId={this.props.match.params.id} />
-
-
-
-
-        <Comments />
+        <Comments userId={this.props.match.params.id} />
 
 
       </section>

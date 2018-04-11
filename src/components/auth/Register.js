@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
+import '../../assets/scss/main.scss';
 import ReactFilestack from 'filestack-react';
 
 
