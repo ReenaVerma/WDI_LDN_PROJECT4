@@ -27,7 +27,7 @@ class Hub extends React.Component {
       headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
     };
     // axios.get('https://developers.zomato.com/api/v2.1/collections?lat=51.5148&lon=0.0651&count=10', config)
-    axios.get('https://developers.zomato.com/api/v2.1/collections?lat=51.5148&lon=0.0651&count=10', config)
+    axios.get('https://developers.zomato.com/api/v2.1/collections?lat=51.5148&lon=0.0651&count=12', config)
       .then(res => {
         console.log(res.data.collections);
         this.setState(
@@ -65,28 +65,29 @@ class Hub extends React.Component {
         <section>
           <div className="container">
             <h1 className="title has-text-centered has-text-primary">Restaurants Nearby:</h1>
-            <div className="has-text-centered">
-
-            </div>
-            <ul className="columns is-multiline">
-              {this.state.places.map((place, i) =>
-                <li key={i} className="column is-one-third">
-                  <div className="card-content">
-                    <div className="card-image">
-                      <figure className="image">
-                        <h2 className="subtitle is-3 has-text-centered">{place.collection.title}</h2>
-                        <p className="has-text-centered">{place.collection.description}</p>
-                        <img src={place.collection.image_url}/>
-                        <div className="has-text-centered">
-                          <Link className="button is-primary" to={place.collection.url}>view more!</Link>
-                        </div>
-
-                      </figure>
-                    </div>
-                  </div>
-                </li>)}
-            </ul>
           </div>
+        </section>
+        <section>
+          <div className="has-text-centered">
+          </div>
+          <ul className="columns is-multiline">
+            {this.state.places.map((place, i) =>
+              <li key={i} className="column is-one-quarter">
+                <div className="card-content">
+                  <div className="card-image">
+                    <figure className="image">
+                      <h2 className="subtitle is-3 has-text-centered">{place.collection.title}</h2>
+                      <p className="has-text-centered">{place.collection.description}</p>
+                      <img src={place.collection.image_url}/>
+                      <div className="has-text-centered">
+                        <Link className="button is-primary" to={place.collection.url}>view more!</Link>
+                      </div>
+
+                    </figure>
+                  </div>
+                </div>
+              </li>)}
+          </ul>
         </section>
       </main>
 

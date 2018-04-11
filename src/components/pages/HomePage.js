@@ -31,50 +31,45 @@ class Home extends React.Component {
 
       // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
       <section className="">
-        {/* 
-        <video loop muted autoPlay poster="" className="fullscreen-bg__video">
-          <source src="../../assets/images/vid2.mov" type="video/mov" />
-
-        </video> */}
+        <video loop muted autoPlay poster="" className="" id="video">
+          <source src="../../assets/images/cut.mp4" type="video/mp4" />
+        </video>
 
 
         <div className="hero-body">
-
-
-
           <div className="container">
-            <div className="columns is-centered">
+            <div className="columns">
               <div className="is-half has-text-centered">
-                <h1 className="title">Homepage</h1>
+                <h1 className="is-size-1 has-text-white">smart travel</h1>
+                <h1 className="is-size-3 has-text-white">search for likeminded travellers abroad</h1>
+
+                <form onSubmit={this.handleSubmit}>
+
+                  <div className="field">
+                    <label htmlFor="email"></label>
+                    <input
+                      className="input is-medium"
+                      placeholder="Email"
+                      name="email"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="field">
+                    <label htmlFor="password"></label>
+                    <input
+                      type="password"
+                      className="input is-medium"
+                      placeholder="Password"
+                      name="password"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+
+                  <button className="button is-primary">login</button>
+                </form>
               </div>
             </div>
 
-            <div className="columns is-pulled-right is-hidden-mobile">
-              <form onSubmit={this.handleSubmit}>
-
-                <div className="field">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    className="input"
-                    placeholder="Email"
-                    name="email"
-                    onChange={this.handleChange}
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    className="input"
-                    placeholder="Password"
-                    name="password"
-                    onChange={this.handleChange}
-                  />
-                </div>
-
-                <button className="button is-primary">Submit</button>
-              </form>
-            </div>
           </div>
         </div>
 
