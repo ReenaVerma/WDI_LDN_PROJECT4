@@ -17,6 +17,7 @@
       background-color:rgba(255,255,255, 0.0) !important;
       border: 0;
       outline: 0;
+      box-shadow: none;
       border-bottom: 1px solid white;
     }
 
@@ -28,4 +29,19 @@
     input[type=text] {
       color: white !important;
     }
+}
+
+.search {
+
+    margin-top: 20px;
+
+    input {
+      background-color: none;
+      border: 0;
+      outline: none;
+      border-bottom: 1px solid #47c5ac;
+      box-shadow: none;
+    }
+
+
 }

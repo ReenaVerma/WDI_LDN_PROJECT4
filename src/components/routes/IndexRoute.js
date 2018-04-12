@@ -50,19 +50,22 @@ class IndexRoute extends React.Component {
     return (
 
 
-      <section>
-
+      <section className="section-top">
         <div className="container">
-          <h1 className="title has-text-centered has-text-primary">Users Nearby:</h1>
+          <h1 className="has-text-centered sub-title">Search by username or travelling preference</h1>
 
-          <div className="container">
-            <div className="field">
-              <input className="input is-large"
-                type="text"
-                name="search"
-                placeholder="search by travelling preferences or username..."
-                onChange={this.handleChange}
-              />
+          <div className="columns">
+            <div className="column search">
+              <div className="container">
+                <div className="field">
+                  <input className="input is-large"
+                    type="text"
+                    name="search"
+                    placeholder="Eg... search John87"
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 

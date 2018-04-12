@@ -29,7 +29,7 @@ class DarkSky extends React.Component {
     render() {
       return (
         <section>
-          <div className="notification is-info animated slideInRight">The temperature is 22ºC</div>
+          <div className="notification is-dark animated slideInRight">The temperature is 22ºC</div>
         </section>
       );
     }
