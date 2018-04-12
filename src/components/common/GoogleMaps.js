@@ -133,8 +133,8 @@ class GoogleMap extends React.Component {
 
             const image = {
               url: user.image, // url
-              scaledSize: new google.maps.Size(60, 60), // scaled size
-              origin: new google.maps.Point(0,0) // origin
+              scaledSize: new google.maps.Size(80, 80), // scaled size
+              origin: new google.maps.Point(10,10) // origin
               // anchor: new google.maps.Point(0, 0) // anchor
             };
 
@@ -165,7 +165,7 @@ class GoogleMap extends React.Component {
             const infoWindow = new google.maps.InfoWindow({
               content: infoContent,
               maxWidth: 200,
-              maxHeight: 100
+              maxHeight: 50
             });
 
             google.maps.event.addListener(marker, 'click', function () {
@@ -301,6 +301,23 @@ class GoogleMap extends React.Component {
             </div>
           </div>
         </section>
+
+
+        <section>
+          <div className="columns">
+            {this.state.users.map((user, i) =>
+              <div key={i} className="column has-text-centered">
+                <div className="card-image">
+                  <Link to="/users/`${user._id}`">
+                    <figure className="image is-64x64 grey-image animated slideInRight">
+                      <img src={user.image} alt="Placeholder image" />
+                    </figure>
+                  </Link>
+                </div>
+              </div> )}
+          </div>
+        </section>
+
         <section>
           <div className="columns has-text-centered">
             <div className="column">

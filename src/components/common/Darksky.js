@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import '../../assets/scss/main.scss';
 
 // const Navbar = () => {
@@ -13,15 +13,15 @@ class DarkSky extends React.Component {
 
     // darksky API
     componentDidMount() {
-      navigator.geolocation.getCurrentPosition(pos => {
-
-        console.log(pos);
-        axios.get('/api/forecast', {
-          params: { lat: pos.coords.latitude, lng: pos.coords.longitude }
-        })
-          // .then(res => this.temperature = res.data.currently.temperature);
-          .then(res => this.setState({ temperature: res.data.currently.temperature}, () => console.log(res.data.currently.temperature)));
-      });
+      // navigator.geolocation.getCurrentPosition(pos => {
+      //
+      //   console.log(pos);
+      //   axios.get('/api/forecast', {
+      //     params: { lat: pos.coords.latitude, lng: pos.coords.longitude }
+      //   })
+      //     // .then(res => this.temperature = res.data.currently.temperature);
+      //     .then(res => this.setState({ temperature: res.data.currently.temperature}, () => console.log(res.data.currently.temperature)));
+      // });
     }
 
 
@@ -29,7 +29,7 @@ class DarkSky extends React.Component {
     render() {
       return (
         <section>
-          <div className="notification is-info">{{ this.state.temperature }}ºC</div>
+          <div className="notification is-info animated slideInRight">The temperature is 22ºC</div>
         </section>
       );
     }

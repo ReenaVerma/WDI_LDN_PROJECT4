@@ -1,5 +1,6 @@
 import React from 'react';
 import IndexRoute from '../../components/routes/IndexRoute';
+import Footer from '../../components/common/Footer';
 import '../../assets/scss/main.scss';
 
 // import ReactDOM from 'react-dom';
@@ -11,13 +12,12 @@ class AllUsers extends React.Component {
     return (
 
       <main>
-        <section className="hero hub is-bold section-top">
+        <section className="hero section-top">
           <div className="hero-body no-padding">
             <div className="has-text-centered">
-              <h1 className="is-size-1 has-text-white headertitle">Search Users</h1>
+              <h1 className="hub-title">Search Users</h1>
             </div>
           </div>
-
         </section>
 
         <section className="section">
@@ -25,6 +25,7 @@ class AllUsers extends React.Component {
             <div className="column"><IndexRoute /></div>
           </div>
         </section>
+        <Footer />
       </main>
 
     );

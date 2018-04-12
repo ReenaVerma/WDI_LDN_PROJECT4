@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
+import Footer from '../../components/common/Footer';
 import '../../assets/scss/main.scss';
 
 class Home extends React.Component {
@@ -30,52 +31,51 @@ class Home extends React.Component {
     return (
 
       // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
-      <section className="section-top">
-        <video loop muted autoPlay poster="" className="" id="video">
-          <source src="../../assets/images/cut.mp4" type="video/mp4" />
-        </video>
+      <main>
+        <section className="section-top">
+          <video loop muted autoPlay poster="" className="" id="video">
+            <source src="../../assets/images/cut.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns">
+                <div className="column has-text-centered">
+                  <h1 className="header-title animated fadeIn">hit me up</h1>
+                  <h1 className="subtitle-title animated fadeIn">search for likeminded travellers abroad</h1>
 
+                  <form className="homepage-form" onSubmit={this.handleSubmit}>
 
-        <div className="hero-body">
-          <div className="container">
-            <div className="columns headertitle">
-              <div className="column has-text-centered">
-                <h1 className="hp-title has-text-white">smart travel</h1>
-                <h1 className="is-size-4 has-text-white">search for likeminded travellers abroad</h1>
+                    <div className="field">
+                      <label htmlFor="email"></label>
+                      <input
+                        className="input is-medium"
+                        placeholder="Email"
+                        name="email"
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                    <div className="field">
+                      <label htmlFor="password"></label>
+                      <input
+                        type="password"
+                        className="input is-medium"
+                        placeholder="Password"
+                        name="password"
+                        onChange={this.handleChange}
+                      />
+                    </div>
 
-                <form onSubmit={this.handleSubmit}>
-
-                  <div className="field">
-                    <label htmlFor="email"></label>
-                    <input
-                      className="input is-medium"
-                      placeholder="Email"
-                      name="email"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-                  <div className="field">
-                    <label htmlFor="password"></label>
-                    <input
-                      type="password"
-                      className="input is-medium"
-                      placeholder="Password"
-                      name="password"
-                      onChange={this.handleChange}
-                    />
-                  </div>
-
-                  <button className="button is-primary">login</button>
-                </form>
+                    <button className="button is-primary is-outlined">login</button>
+                  </form>
+                </div>
               </div>
+
             </div>
-
           </div>
-        </div>
 
-      </section>
-
-
+        </section>
+        <Footer />
+      </main>
 
 
 

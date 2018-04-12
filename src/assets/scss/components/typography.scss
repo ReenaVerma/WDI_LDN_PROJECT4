@@ -1,6 +1,8 @@
 p {
   font-size: 16px;
   color: #999;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
 }
 
 .opacity {
@@ -10,24 +12,55 @@ p {
 }
 
 .here-title {
+  font-family: 'Pacifico', cursive;
   font-size: 30px;
   // color: #47c5ac;
   color: #47c5ac;
 }
 
-.headertitle {
+.header-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 80px;
   padding-top: 60px;
+  color:#47c5ac;
+  text-shadow: 3px 3px 3px #fff,
+             3px 3px 5px #27FDF5;
+}
+
+.hub-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  padding-top: 60px;
+  color: #47c5ac;
+  text-shadow: 3px 3px 3px #fff,
+             3px 3px 5px #27FDF5;
+}
+
+.subtitle-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  color: white;
+
 }
 
 .cat-titles {
+  font-family: 'Pacifico', cursive;
   margin-top: -20px;
   margin-bottom: 20px;
-  color: #47c5ac;
+  color: #F765B8;
   font-size: 30px;
 }
 
 .gold {
   color: #47c5ac;
+}
+
+.pink {
+  color: #F765B8;
+}
+
+.red {
+  color: #DA345C;
 }
 
 .hp-title {

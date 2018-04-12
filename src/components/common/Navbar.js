@@ -41,7 +41,7 @@ class Navbar extends React.Component {
     console.log(Auth.isAuthenticated());
 
     return (
-      <nav className="navbar is-black">
+      <nav className="navbar is-white">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
             SMART TRAVEL
@@ -61,12 +61,12 @@ class Navbar extends React.Component {
           <div className="navbar-end">
 
 
-            {Auth.isAuthenticated() && <Link className="navbar-item" to="/hub">My Travel Hub</Link>}
-            {Auth.isAuthenticated() && <Link className="navbar-item" to="/users">Search Users</Link>}
-            {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout} to="/">Logout</a>}
-            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/">Home</Link>}
-            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
-            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+            {Auth.isAuthenticated() && <Link className="navbar-item" to="/hub">my travel hub</Link>}
+            {Auth.isAuthenticated() && <Link className="navbar-item" to="/users">search Uusers</Link>}
+            {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout} to="/">logout</a>}
+            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/">home</Link>}
+            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">register</Link>}
+            {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">login</Link>}
 
 
           </div>
