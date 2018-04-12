@@ -11,10 +11,10 @@ class AllUsers extends React.Component {
     return (
 
       <main>
-        <section className="hero is-medium hub is-bold">
+        <section className="hero hub is-bold section-top">
           <div className="hero-body no-padding">
             <div className="has-text-centered">
-              <h1 className="title">Search Users</h1>
+              <h1 className="is-size-1 has-text-white headertitle">Search Users</h1>
             </div>
           </div>
 

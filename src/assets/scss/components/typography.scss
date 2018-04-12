@@ -1,9 +1,35 @@
 p {
   font-size: 16px;
+  color: #999;
 }
 
 .opacity {
    background: rgba(0, 0, 0, 0.5);
    padding-left: 30px;
    padding-right: 30px;
+}
+
+.here-title {
+  font-size: 30px;
+  // color: #47c5ac;
+  color: #47c5ac;
+}
+
+.headertitle {
+  padding-top: 60px;
+}
+
+.cat-titles {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #47c5ac;
+  font-size: 30px;
+}
+
+.gold {
+  color: #47c5ac;
+}
+
+.hp-title {
+  font-size: 80px;
 }

@@ -52,7 +52,7 @@ class IndexRoute extends React.Component {
 
       <section>
 
-        <div className="container card">
+        <div className="container">
           <h1 className="title has-text-centered has-text-primary">Users Nearby:</h1>
 
           <div className="container">
@@ -76,7 +76,7 @@ class IndexRoute extends React.Component {
 
                   <div className="card">
                     <div className="card-image">
-                      <figure className="image is-square">
+                      <figure className="image">
                         <img src={user.image} alt="Placeholder image" />
                       </figure>
                     </div>

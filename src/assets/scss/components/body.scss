@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 
 body {
   font-family: 'Dosis', sans-serif;
@@ -8,5 +8,15 @@ main {
   border: 0px solid green;
 }
 section {
-  border: 1px solid red;
+  border: 0px solid red;
+}
+
+.grey {
+  background-color: #EDEDED;
+}
+
+.card {
+  background-color: #ccc;
+  padding: 0px;
+  border: none;
 }

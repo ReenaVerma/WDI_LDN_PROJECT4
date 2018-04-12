@@ -41,7 +41,7 @@ class Navbar extends React.Component {
     console.log(Auth.isAuthenticated());
 
     return (
-      <nav className="navbar">
+      <nav className="navbar is-black">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
             SMART TRAVEL

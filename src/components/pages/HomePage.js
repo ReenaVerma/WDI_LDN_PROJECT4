@@ -30,7 +30,7 @@ class Home extends React.Component {
     return (
 
       // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
-      <section className="">
+      <section className="section-top">
         <video loop muted autoPlay poster="" className="" id="video">
           <source src="../../assets/images/cut.mp4" type="video/mp4" />
         </video>
@@ -38,10 +38,10 @@ class Home extends React.Component {
 
         <div className="hero-body">
           <div className="container">
-            <div className="columns">
-              <div className="is-half has-text-centered">
-                <h1 className="is-size-1 has-text-white">smart travel</h1>
-                <h1 className="is-size-3 has-text-white">search for likeminded travellers abroad</h1>
+            <div className="columns headertitle">
+              <div className="column has-text-centered">
+                <h1 className="hp-title has-text-white">smart travel</h1>
+                <h1 className="is-size-4 has-text-white">search for likeminded travellers abroad</h1>
 
                 <form onSubmit={this.handleSubmit}>
 
