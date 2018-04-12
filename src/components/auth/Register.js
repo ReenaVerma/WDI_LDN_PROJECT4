@@ -33,7 +33,9 @@ class Register extends React.Component {
       accept: 'image/*',
       maxFiles: 1,
       transformations: {
-        crop: {aspectRatio: 1.333}
+        crop: { force: true,
+          aspectRatio: 1.333
+        }
       }
     };
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Promise from 'bluebird';
 // import Timestamp from 'react-timestamp';
 import '../../assets/scss/main.scss';
 
 import GoogleMaps from '../../components/common/GoogleMaps';
+// import Darksky from '../../components/common/Darksky';
 // import GetLocation from '../../components/common/GetLocation';
 
 // const rp = require('request-promise');
@@ -17,7 +19,8 @@ class Hub extends React.Component {
     user: null,
     // latlng: null
     lat: null,
-    lng: null
+    lng: null,
+    temperature: []
   }
 
 
@@ -37,36 +40,31 @@ class Hub extends React.Component {
       Object.assign(params, { lat: this.state.lat, lon: this.state.lng });
     }
 
-    axios({
-      url: 'https://developers.zomato.com/api/v2.1/geocode',
-      params: params,
-      json: true,
-      method: 'GET',
-      headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
+    //restaurants
+    Promise.props({
+      restaurants: axios({
+        url: 'https://developers.zomato.com/api/v2.1/geocode',
+        params: params,
+        json: true,
+        method: 'GET',
+        headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
+      }).then(res => res.data),
+      articles: axios({
+        url: 'https://developers.zomato.com/api/v2.1/collections',
+        params: params,
+        json: true,
+        method: 'GET',
+        headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
+      }).then(res => res.data)
     })
-    // .then(response => res.json(response))
-    // .catch(next);
-      .then(res => {
-        console.log(res.data);
-        console.log(res.data.location.title);
-        console.log(res.data.nearby_restaurants);
-        this.setState({ places: res.data.nearby_restaurants});
+      .then(data => {
+        this.setState({
+          places: data.restaurants.nearby_restaurants.slice(0, 4),
+          articles: data.articles.collections
+        });
       });
 
-    axios({
-      url: 'https://developers.zomato.com/api/v2.1/collections',
-      params: params,
-      json: true,
-      method: 'GET',
-      headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
-    })
-    // .then(response => res.json(response))
-    // .catch(next);
-      .then(res => {
-        console.log(res.data);
-        console.log(res.data.collections);
-        this.setState({ articles: res.data.collections});
-      });
+
   }
 
 
@@ -111,8 +109,18 @@ class Hub extends React.Component {
             </div>
           </div>
         </section>
+        {/* <Darksky /> */}
 
-        <section>
+        <section className="section">
+          <div className="columns">
+            <div className="column">
+              <GoogleMaps setLocation={this.setLocation} />
+            </div>
+          </div>
+        </section>
+
+
+        <section className="grey section">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Useful Articles for your Neighbourhood:</h1>
           </div>
@@ -122,7 +130,7 @@ class Hub extends React.Component {
                 <div className="container card">
                   <div className="">
                     <div className="card-image">
-                      <figure className="image">
+                      <figure className="box">
                         <Link to={article.collection.url}>
                           <img className="is-3by2" src={article.collection.image_url}/>
                           <p className="is-size-4 has-text-centered gold">{article.collection.title}</p>
@@ -137,23 +145,12 @@ class Hub extends React.Component {
         </section>
 
         <section className="section">
-          <div className="columns">
-            <div className="column">
-              <GoogleMaps setLocation={this.setLocation} />
-            </div>
-          </div>
-        </section>
-
-
-
-
-        <section className="grey">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Restaurants Nearby: </h1>
           </div>
           <ul className="columns is-multiline">
             {this.state.places.map((place, i) =>
-              <li key={i} className="column is-one-quarter">
+              <li key={i} className="column is-half">
                 <div className="container card">
                   <div className="">
                     <div className="card-image">
@@ -163,11 +160,7 @@ class Hub extends React.Component {
                         <p className="has-text-left">{place.restaurant.location.address}</p>
                         <p className="has-text-left">User rating: {place.restaurant.user_rating.rating_text}</p>
                         <p className="has-text-left">Votes: {place.restaurant.user_rating.votes}</p>
-                        <br />
-                        <div className="has-text-left">
-                          <Link className="button is-outlined gold" to={place.restaurant.deeplink}>book a table now</Link>
-                        </div>
-
+                        <Link className="gold has-text-left" to={place.restaurant.events_url} target="_blank">book a table now</Link>
                       </figure>
                     </div>
                   </div>

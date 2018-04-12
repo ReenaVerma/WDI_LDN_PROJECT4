@@ -159,7 +159,7 @@ class GoogleMap extends React.Component {
               Lost logged in: ${user.last_login_date}<br/>
               Travelling: ${user.travelling}<br/>
               <img id="abi" src="${photo}"><br/>
-              <a href="${user._id}">Message ${user.username}</a>
+              <a href="/users/${user._id}">Message ${user.username}</a>
               `;
 
             const infoWindow = new google.maps.InfoWindow({
