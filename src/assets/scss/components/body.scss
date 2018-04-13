@@ -30,3 +30,7 @@ section {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
+
+.is-rounded {
+  border-radius: 50px !important;
+}

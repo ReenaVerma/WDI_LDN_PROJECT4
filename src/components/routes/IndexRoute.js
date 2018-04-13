@@ -40,7 +40,7 @@ class IndexRoute extends React.Component {
 
     //use _filter to filter the bangers
     const filtered = _.filter(this.state.users, (user) => regex.test(user.username) || regex.test(user.travelling));
-    return filtered;
+    return filtered.sort((a, b) => Date(a.last_login_date) < Date(b.last_login_date));
     //state.bangers is what we want filter
     // everytime state changes, it calls the render function again, because it knows something has changed
   }
@@ -72,7 +72,7 @@ class IndexRoute extends React.Component {
 
 
           <div className="columns is-multiline">
-            {this.filterUsernames().sort((a, b) => Number(a.last_login_date) - Number(b.last_login_date)).map((user, i) =>
+            {this.filterUsernames().map((user, i) =>
               <div key={i} className="column is-one-third">
                 <Link to={`/users/${user._id}`}>
 

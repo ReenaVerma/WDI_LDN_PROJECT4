@@ -8,7 +8,7 @@ import '../../assets/scss/main.scss';
 import GoogleMaps from '../../components/common/GoogleMaps';
 import Footer from '../../components/common/Footer';
 import Darksky from '../../components/common/Darksky';
-// import GetLocation from '../../components/common/GetLocation';
+
 
 // const rp = require('request-promise');
 

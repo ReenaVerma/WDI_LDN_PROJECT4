@@ -133,7 +133,7 @@ class GoogleMap extends React.Component {
 
             const image = {
               url: user.image, // url
-              scaledSize: new google.maps.Size(80, 80), // scaled size
+              scaledSize: new google.maps.Size(110, 80), // scaled size
               origin: new google.maps.Point(10,10) // origin
               // anchor: new google.maps.Point(0, 0) // anchor
             };
@@ -172,6 +172,7 @@ class GoogleMap extends React.Component {
               infoWindow.open(this.map, marker);
             });
           }
+
 
         });
       }));
@@ -232,7 +233,8 @@ class GoogleMap extends React.Component {
             that.map.setCenter(latlng);
             const marker = new google.maps.Marker({
               position: latlng,
-              title: 'Hello World!'
+              title: 'Hello World!',
+              animation: google.maps.Animation.DROP
             });
             // To add the marker to the map, call setMap();
             marker.setMap(that.map);
@@ -303,14 +305,18 @@ class GoogleMap extends React.Component {
         </section>
 
 
-        <section>
-          <div className="columns">
+        <section className="section">
+          <div className="has-text-centered">
+            <h2 className="cat-titles">Most recently logged in...</h2>
+          </div>
+          <div className="columns is-multiline">
+
             {this.state.users.map((user, i) =>
               <div key={i} className="column has-text-centered">
                 <div className="card-image">
                   <Link to="/users/`${user._id}`">
                     <figure className="image is-64x64 grey-image animated slideInRight">
-                      <img src={user.image} alt="Placeholder image" />
+                      <img className="is-rounded" src={user.image} alt="Placeholder image" />
                     </figure>
                   </Link>
                 </div>
@@ -319,6 +325,10 @@ class GoogleMap extends React.Component {
         </section>
 
         <section>
+          <div className="has-text-centered">
+            <h2 className="cat-titles">Travellers in your area, now!</h2>
+            <br />
+          </div>
           <div className="columns has-text-centered">
             <div className="column">
               <div className="google-map" ref={element => this.mapDiv = element}></div>
