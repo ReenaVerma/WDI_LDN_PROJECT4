@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
   handleLogout = () => {
     Auth.logout();
-    this.props.history.push('/bangers');
+    this.props.history.push('/login');
   }
 
 
@@ -77,8 +77,3 @@ class Navbar extends React.Component {
 }
 
 export default withRouter(Navbar);
-
-{/* {Auth.isAuthenticated() && <Link className="navbar-item" to="/bangers/new">New Bangers</Link>}
-{Auth.isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout} to="/bangers">Logout</a>}
-{!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
-{!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>} */}
