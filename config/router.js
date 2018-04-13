@@ -32,7 +32,6 @@ router.route('/users/:id/messages')
 router.route('/users/:id/messages/:messageId')
   .delete(secureRoute, users.messagesDelete);
 
-
 // darksky api
 router.get('/forecast', darksky.forecast);
 
