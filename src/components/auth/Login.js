@@ -31,31 +31,43 @@ class Login extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-
-        <div className="field">
-          <label htmlFor="email">Email</label>
-          <input
-            className="input"
-            placeholder="Email"
-            name="email"
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className="field">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="input"
-            placeholder="Password"
-            name="password"
-            onChange={this.handleChange}
-          />
-        </div>
+      <main>
+        <section className="section ">
+          <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
+            <source src="../../assets/images/cut.mp4" type="video/mp4" />
+          </video>
+          <div className="has-text-centered">
+            <h1 className="normal-title">Login</h1>
+          </div>
 
 
-        <button className="button is-primary">Submit</button>
-      </form>
+          <form className="credentials-form" onSubmit={this.handleSubmit}>
+
+            <div className="field">
+              <label htmlFor="email"></label>
+              <input
+                className="input"
+                placeholder="Email"
+                name="email"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="password"></label>
+              <input
+                type="password"
+                className="input"
+                placeholder="Password"
+                name="password"
+                onChange={this.handleChange}
+              />
+            </div>
+
+
+            <button className="button is-primary is-outlined">Submit</button>
+          </form>
+        </section>
+      </main>
     );
   }
 }

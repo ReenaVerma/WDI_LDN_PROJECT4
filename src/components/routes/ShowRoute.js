@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import Moment from 'react-moment';
 import '../../assets/scss/main.scss';
 
 class ShowRoute extends React.Component {
@@ -24,33 +25,53 @@ class ShowRoute extends React.Component {
   render() {
     return (
 
-      <section>
+      <section className="section">
+        {this.state.user &&
+        <div className="has-text-centered">
+          <div className="profile-title">user: {this.state.user.username}</div>
+          {/* <h1 className=""></h1> */}
+          <div className="columns is-multiline">
 
-        <div className="container">
-          <h1 className="title has-text-centered has-text-primary">Individual User Profile:</h1>
-          <h1 className="title">Last Login: {this.state.lastLogin}</h1>
-          <ul className="columns is-multiline">
-            {this.state.user &&
-              <li className="column is-one-third">
-                <div className="card-content">
-                  <div className="card-image">
-                    <figure className="image">
-                      <img src={this.state.user.image} />
-                      <h2 className="subtitle is-3 has-text-centered">User: {this.state.user.username}</h2>
-                      {/* <p className="has-text-centered">Age: {this.state.user.userLocation}</p> */}
-                      <p className="has-text-centered">Age: {this.state.user.date}</p>
-                      <p className="has-text-centered">Travelling with: {this.state.user.travelling}</p>
-                    </figure>
-                  </div>
-                </div>
-                <h2 className="subtitle is-3 has-text-centered">Chat with: {this.state.user.username}</h2>
-              </li>}
-          </ul>
-        </div>
+
+
+            <div className="column is-half">
+              <div className="card-image">
+                <figure className="image is-4by3">
+                  <img src={this.state.user.image} />
+                </figure>
+
+              </div>
+            </div>
+
+            <div className="column is-half">
+              <p className="profile-subtitle has-text-left"><strong>Last Login: {this.state.lastLogin}</strong></p>
+              <br />
+
+              <div className="columns">
+                <div className="column"><i className="fas fa-venus fa-2x"></i></div>
+                <div className="column"><i className="fas fa-2x fa-bicycle"></i></div>
+                <div className="column"><i className="fas fa-glass-martini fa-2x"></i></div>
+
+              </div>
+
+
+              <p className="profile-subtitle has-text-left">Age: <Moment fromNow ago>{this.state.user.date}</Moment></p>
+              <p className="profile-subtitle has-text-left">Travelling with: {this.state.user.travelling}</p>
+              <hr />
+              <p className="profile-subtitle has-text-left">About me: </p>
+              <p className="has-text-left">{this.state.user.description}</p>
+            </div>
+          </div>
+
+        </div>}
+
       </section>
+
 
     );
   }
 }
 
 export default ShowRoute;
+
+{/* <p className="has-text-centered">Age: {this.state.user.userLocation}</p>  */}

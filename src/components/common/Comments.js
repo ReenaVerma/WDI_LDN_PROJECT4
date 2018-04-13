@@ -54,57 +54,37 @@ class Comments extends React.Component {
 
 
   render() {
+    console.log(this.state.user);
     return (
-    // console.log(Auth.isAuthenticated());
-
-      <section>
-      Comments
-        <div className="columns mobile">
-          <div className="column">
 
 
-            <div className="columns">
-              <div className="column">
-                <hr />
-                <ul className="comments">
-                  <li>
-                    <div className="box">
+      <section className="section">
+        <div className="messages-title">Messages</div>
 
-                      <article className="media">
+        <hr />
 
-
-                        {this.state.user && this.state.user.messages.map(message =>
-
-                          <div key={message._id} className="media-content">
-                            <div className="content">
+        {this.state.user && this.state.user.messages.map(message =>
+          <div key={message._id} className="columns is-multiline">
+            <div className="column">
 
 
+              <div className="media-content">
 
-                              <button onClick={() => this.deleteComment(message._id)} className="delete is-right">x</button>
+                <p className="user-title has-text-black">Posted by member: {message.user.username}</p>
+                <div className="media-left">
+                  <figure className="image is-64x64 is-rounded">
+                    <img src={message.user.image} />
+                  </figure>
+                </div>
+                <p>{message.content}</p>
+                <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete  message</a>
 
 
-                              <strong><p>Posted by member: {message.user.username}</p></strong>
-                              <div className="media-left">
-                                <figure className="image is-64x64">
-
-                                  <i className="far fa-smile fa-3x"></i>
-                                </figure>
-                              </div>
-
-                              <p>{message.content}</p>
-                            </div>
-                          </div>
-                        )}
-                      </article>
-                    </div>
-                  </li>
-
-                </ul>
               </div>
             </div>
-          </div>
-        </div>
 
+          </div>
+        )}
 
         <div className="columns mobile">
           <div className="column">
@@ -118,7 +98,7 @@ class Comments extends React.Component {
                 value={this.state.newMessage}
               ></textarea>
               <br />
-              <button id="reviewButton" className="button is-primary">submit</button>
+              <button id="reviewButton" className="button is-primary">post message</button>
             </form>
           </div>
         </div>

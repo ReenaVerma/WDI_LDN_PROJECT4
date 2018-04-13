@@ -18,6 +18,13 @@ p {
   color: #47c5ac;
 }
 
+.login-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px;
+  // color: #47c5ac;
+  color: #666;
+}
+
 .header-title {
   font-family: 'Pacifico', cursive;
   font-size: 80px;
@@ -65,4 +72,28 @@ p {
 
 .hp-title {
   font-size: 80px;
+}
+
+.profile-title {
+  background-color: #47c5ac;
+  height: 70px;
+  color: white;
+  padding: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.normal-title {
+  color: #47c5ac;
+  padding: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.profile-subtitle {
+  font-size: 25px;
+  // color: #47c5ac;
+  color: #666;
 }

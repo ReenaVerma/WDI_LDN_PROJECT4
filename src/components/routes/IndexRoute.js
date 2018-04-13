@@ -88,12 +88,11 @@ class IndexRoute extends React.Component {
                       <div className="media-content">
                         <p className="has-text-centered title is-4">{user.username}</p>
                         <p className="has-text-centered subtitle is-6">Last logged in:<br /><Timestamp time={user.last_login_date} precision={2} /></p>
-
-                        <p className="has-text-centered">location: </p>
                         <p className="has-text-centered">Age:&nbsp;
-                        <Moment fromNow ago>{user.date}</Moment> old
-                        </p>
+                        <Moment fromNow ago>{user.date}</Moment> old</p>
                         <p className="has-text-centered">Travelling with: {user.travelling}</p>
+                        <p className="has-text-centered">location: </p>
+
                       </div>
 
 

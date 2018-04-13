@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema({
   travelling: { type: String, required: true },
   // interests: { type: String, required: true }
   last_login_date: { type: Date },
+  description: { type: String },
   userLocation: {
     lat: { type: Number },
     lng: { type: Number }

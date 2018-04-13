@@ -11,8 +11,8 @@ class AllUsers extends React.Component {
   render() {
     return (
 
-      <main>
-        <section className="hero hub-image section-top">
+      <main className="grey">
+        <section className="hero hub-image">
           <div className="hero-body no-padding">
             <div className="has-text-centered">
               <h1 className="hub-title">Search Users</h1>

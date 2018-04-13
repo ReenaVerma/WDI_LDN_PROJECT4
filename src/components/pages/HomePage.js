@@ -33,7 +33,7 @@ class Home extends React.Component {
       // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
       <main>
         <section className="section-top">
-          <video loop muted autoPlay poster="" className="" id="video">
+          <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
             <source src="../../assets/images/cut.mp4" type="video/mp4" />
           </video>
           <div className="hero-body">

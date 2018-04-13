@@ -18,7 +18,7 @@
       border: 0;
       outline: 0;
       box-shadow: none;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid #ccc;
     }
 
     input::placeholder {
@@ -32,7 +32,6 @@
 }
 
 .search {
-
     margin-top: 20px;
 
     input {
@@ -42,6 +41,75 @@
       border-bottom: 1px solid #47c5ac;
       box-shadow: none;
     }
+}
 
+.registration-form {
+  font-family: 'Pacifico', cursive;
+  border: 0px solid #ccc;
+  margin: 0 auto;
+  width: 600px;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
 
+  input {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+    background-color:rgba(255,255,255, 0.0) !important;
+  }
+
+  input::placeholder {
+    font-family: 'Pacifico', cursive;
+    color: #efefef;
+    background-color: none;
+  }
+
+  input[type=text] {
+    font-family: 'Pacifico', cursive;
+    color: white !important;
+  }
+
+  label {
+    color: white;
+  }
+
+  input.date {
+    color: white;
+  }
+}
+
+/* register login form */
+.credentials-form {
+  margin: 50px auto;
+  width: 400px;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+
+  input {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+    background-color:rgba(255,255,255, 0.0) !important;
+  }
+
+  input::placeholder {
+    font-family: 'Pacifico', cursive;
+    color: #efefef;
+    background-color: none;
+  }
+
+  input[type=text] {
+    font-family: 'Pacifico', cursive;
+    color: white !important;
+  }
+
+  label {
+    color: white;
+  }
 }
