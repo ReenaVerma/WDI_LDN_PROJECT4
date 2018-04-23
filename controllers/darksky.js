@@ -8,12 +8,12 @@
 const rp = require('request-promise');
 
 function forecast(req, res, next) {
-  const endpoint = 'https://api.darksky.net/forecast/75f4aa767c9a552f37a6a6fc099f84f6';
+  const endpoint = 'https://api.darksky.net/forecast/' + process.env.DARKSKY_API_KEY;
   const { lat, lng } = req.query;
   console.log(req.query);
 
   rp({
-    url: `${endpoint}${lat},${lng}`,
+    url: `${endpoint}/${lat},${lng}`,
     qs: { units: 'si'},
     json: true,
     method: 'GET'
