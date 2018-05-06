@@ -2,7 +2,7 @@ p {
   font-size: 16px;
   color: #999;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .opacity {
@@ -35,10 +35,13 @@ p {
 }
 
 .hub-title {
+  // font-family: 'Open Sans', sans-serif;
   font-family: 'Pacifico', cursive;
-  font-size: 50px;
-  padding-top: 60px;
+  font-size: 70px;
+  padding-top: 100px;
+  top: 0;
   color: #47c5ac;
+  // background: rgba(0,0,0,0.5);
   text-shadow: 3px 3px 3px #fff,
              3px 3px 5px #27FDF5;
 }

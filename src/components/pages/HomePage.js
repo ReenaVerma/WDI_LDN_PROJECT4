@@ -36,6 +36,9 @@ class Home extends React.Component {
           <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
             <source src="../../assets/images/cut.mp4" type="video/mp4" />
           </video>
+          <div className="mobile-header is-hidden-desktop">
+          
+          </div>
           <div className="hero-body">
             <div className="container">
               <div className="columns">

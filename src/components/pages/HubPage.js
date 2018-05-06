@@ -21,7 +21,7 @@ class Hub extends React.Component {
     // latlng: null
     lat: null,
     lng: null,
-    temperature: []
+    weather: null
   }
 
 
@@ -33,6 +33,27 @@ class Hub extends React.Component {
   setLocation = (lat, lng) => {
     console.log('location set...', lat, lng);
     this.setState({ lat: lat, lng: lng }, this.getPlaces);
+  }
+
+  getWeather = () => {
+    const params = {lat: this.state.lat, lng: this.state.lng};
+  
+
+    //restaurants
+    Promise.props({
+      weather: axios({
+        url: 'https://api.darksky.net/forecast',
+        params: params,
+        json: true,
+        method: 'GET',
+        headers: {'user-key': '75f4aa767c9a552f37a6a6fc099f84f6'}
+      }).then(res => res.data)
+    })
+      .then(data => {
+        this.setState({
+          weather: data.weather
+        });
+      });
   }
 
   getPlaces = () => {
@@ -65,12 +86,12 @@ class Hub extends React.Component {
         });
       });
 
-
   }
 
 
   componentDidMount() {
     this.getPlaces();
+    this.getWeather();
 
     // axios.get('https://api.darksky.net/forecast/75f4aa767c9a552f37a6a6fc099f84f6/50.830133,-0.137434')
     //   .then(res => {
@@ -95,7 +116,7 @@ class Hub extends React.Component {
         <section className="hero hub-image section-top">
           <div className="hero-body no-padding">
             <div className="has-text-centered">
-              <h1 className="hub-title">Welcome to Los Angeles, USA <br />Reena!</h1>
+              <h1 className="hub-title">Your Travel Hub</h1>
             </div>
           </div>
         </section>

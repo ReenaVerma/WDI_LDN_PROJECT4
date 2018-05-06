@@ -282,7 +282,7 @@ class GoogleMap extends React.Component {
           <div className="columns has-text-centered">
             <div className="column">
               <div className="location">
-                <i className="fas fa-location-arrow fa-3x gold"></i>
+                <i className="fas fa-map-marker fa-3x gold"></i>
                 <h2 className="sub-title">Finding your location...</h2>
                 <p>{this.state.userLocation}</p>
               </div>

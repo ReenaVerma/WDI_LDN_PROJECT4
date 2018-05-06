@@ -119,6 +119,7 @@ class Register extends React.Component {
               <br />
               <div className="select">
                 <select name="travelling" htmlFor="travelling" onChange={this.handleChange}>
+                  <option>select an option</option>
                   <option>Solo</option>
                   <option>Friends</option>
                   <option>Boyfriend/Girlfriend</option>
@@ -147,6 +148,7 @@ class Register extends React.Component {
                 onChange={this.handleChange}
               />
             </div>
+            <label htmlFor="description">Profile picture:</label><br />
             <ReactFilestack
               apikey={'A8LoppjzCQMKU2LknClJcz'}
               options={options}

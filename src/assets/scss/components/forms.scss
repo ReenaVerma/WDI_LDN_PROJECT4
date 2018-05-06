@@ -1,17 +1,9 @@
-// .hp-input  {
-//   background-color:rgba(255,255,255, 0.3) !important;
-//   color: white !important;
-//   border: none !important;
-//   border-radius: 0px;
-//   width: 400px !important;
-// }
 
 .homepage-form {
-  border: 0px solid #ccc;
   margin: 0 auto;
   width: 400px;
-  // background-color: #fff;
   padding: 20px;
+
 
     input {
       background-color:rgba(255,255,255, 0.0) !important;
@@ -19,15 +11,19 @@
       outline: 0;
       box-shadow: none;
       border-bottom: 1px solid #ccc;
+      color: #efefef;
+      font-size: 14px;
     }
 
     input::placeholder {
-      font-family: 'Pacifico', cursive;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: lighter;
       color: #efefef;
+      font-size: 14px;
     }
 
     input[type=text] {
-      color: white !important;
+      color: #efefef !important;
     }
 }
 
@@ -44,12 +40,13 @@
 }
 
 .registration-form {
-  font-family: 'Pacifico', cursive;
-  border: 1px solid #ccc;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  border: 0px solid #ccc;
   margin: 0 auto;
   width: 600px;
   height: 100%;
-  background-color: rgba(0,0,0, 0.5);
+  background-color: rgba(0,0,0, 0.8);
   padding: 20px;
   border-radius: 5px;
 
@@ -57,18 +54,23 @@
     border: 0;
     outline: 0;
     box-shadow: none;
-    border-bottom: 1px solid #ccc;
+    color: #fff;
+    border-bottom: 1px solid #1d1d1d;
     background-color:rgba(255,255,255, 0.0) !important;
   }
 
   input::placeholder {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
     color: #efefef;
     background-color: none;
+    font-size: 15px;
+    padding-left: -10px;
   }
 
   input[type=text] {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
     color: white !important;
   }
 
@@ -78,6 +80,10 @@
 
   input.date {
     color: white;
+  }
+
+  .field {
+    margin-top: 20px;
   }
 }
 
@@ -99,17 +105,22 @@
   }
 
   input::placeholder {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
     color: #efefef;
     background-color: none;
+    font-size: 14px;
   }
 
   input[type=text] {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
     color: white !important;
+    font-size: 14px;
   }
 
   label {
     color: white;
   }
+
 }

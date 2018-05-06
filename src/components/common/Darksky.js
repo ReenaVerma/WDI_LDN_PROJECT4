@@ -12,17 +12,17 @@ class DarkSky extends React.Component {
     }
 
     // darksky API
-    componentDidMount() {
-      // navigator.geolocation.getCurrentPosition(pos => {
-      //
-      //   console.log(pos);
-      //   axios.get('/api/forecast', {
-      //     params: { lat: pos.coords.latitude, lng: pos.coords.longitude }
-      //   })
-      //     // .then(res => this.temperature = res.data.currently.temperature);
-      //     .then(res => this.setState({ temperature: res.data.currently.temperature}, () => console.log(res.data.currently.temperature)));
-      // });
-    }
+    // componentDidMount() {
+    //   navigator.geolocation.getCurrentPosition(pos => {
+    //
+    //     console.log(pos);
+    //     axios.get('/api/forecast', {
+    //       params: { lat: pos.coords.latitude, lng: pos.coords.longitude }
+    //     })
+    //       // .then(res => this.temperature = res.data.currently.temperature);
+    //       .then(res => this.setState({ temperature: res.data.currently.temperature}, () => console.log(res.data.currently.temperature)));
+    //   });
+    // }
 
 
 
