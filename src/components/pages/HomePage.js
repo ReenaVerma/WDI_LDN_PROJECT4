@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
-import Footer from '../../components/common/Footer';
+import FooterHomepage from '../../components/common/FooterHomepage';
 import '../../assets/scss/main.scss';
 
 class Home extends React.Component {
@@ -74,7 +74,7 @@ class Home extends React.Component {
           </div>
 
         </section>
-        <Footer />
+        <FooterHomepage />
       </main>
 
 

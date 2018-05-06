@@ -170,6 +170,7 @@ class Register extends React.Component {
           </form>
         </section>
         <Footer />
+
       </main>
     );
   }
