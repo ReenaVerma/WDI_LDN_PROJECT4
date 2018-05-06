@@ -21,7 +21,7 @@ class Hub extends React.Component {
     // latlng: null
     lat: null,
     lng: null,
-    weather: null
+    weather: []
   }
 
 
@@ -35,29 +35,29 @@ class Hub extends React.Component {
     this.setState({ lat: lat, lng: lng }, this.getPlaces);
   }
 
-  getWeather = () => {
-    const params = {lat: this.state.lat, lng: this.state.lng};
-  
 
-    //restaurants
-    Promise.props({
-      weather: axios({
-        url: 'https://api.darksky.net/forecast',
-        params: params,
-        json: true,
-        method: 'GET',
-        headers: {'user-key': '75f4aa767c9a552f37a6a6fc099f84f6'}
-      }).then(res => res.data)
-    })
-      .then(data => {
-        this.setState({
-          weather: data.weather
-        });
-      });
-  }
+  // getWeather = () => {
+  //   const params = {lat: this.state.lat, lng: this.state.lng};
+  //
+  //   Promise.props({
+  //     weather: axios({
+  //       url: 'https://api.darksky.net/forecast',
+  //       params: params,
+  //       json: true,
+  //       method: 'GET',
+  //       headers: {'user-key': '75f4aa767c9a552f37a6a6fc099f84f6'}
+  //     }).then(res => console.log(res.data))
+  //       .catch(err => console.log(err))
+  //   })
+  //     .then(data => {
+  //       this.setState({
+  //         weather: data.weather
+  //       });
+  //     });
+  // }
 
   getPlaces = () => {
-    const params = { count: 3, lat: 34.019864, lon: -118.490541 };
+    const params = {count: 3, lat: 34.019864, lon: -118.490541 };
     if(this.state.lat && this.state.lng) {
       Object.assign(params, { lat: this.state.lat, lon: this.state.lng });
     }
@@ -71,6 +71,7 @@ class Hub extends React.Component {
         method: 'GET',
         headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
       }).then(res => res.data),
+
       articles: axios({
         url: 'https://developers.zomato.com/api/v2.1/collections',
         params: params,
@@ -78,6 +79,7 @@ class Hub extends React.Component {
         method: 'GET',
         headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
       }).then(res => res.data)
+
     })
       .then(data => {
         this.setState({
@@ -86,12 +88,13 @@ class Hub extends React.Component {
         });
       });
 
+
   }
 
 
   componentDidMount() {
     this.getPlaces();
-    this.getWeather();
+    // this.getWeather();
 
     // axios.get('https://api.darksky.net/forecast/75f4aa767c9a552f37a6a6fc099f84f6/50.830133,-0.137434')
     //   .then(res => {
@@ -104,8 +107,9 @@ class Hub extends React.Component {
 
 
   render() {
-    console.log('hub state update', this.state.latlng);
+    // console.log('hub state update', this.state.latlng);
     console.log('places', this.state.places);
+    console.log('weather', this.state.weather);
     // console.log(this.state.data.places);
     // if places is null/false and nothing has loaded, dont run the code below.
     // if places is truthy, then run code below
