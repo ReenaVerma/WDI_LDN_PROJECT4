@@ -125,3 +125,18 @@
   }
 
 }
+
+@media only screen and (max-width: 786px) {
+  .homepage-form {
+    width: 90%;
+  }
+
+  .registration-form {
+    width: 90%;
+    z-index: -1;
+  }
+
+  .credentials-form {
+    width: 90%;
+  }
+}

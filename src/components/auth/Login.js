@@ -32,9 +32,7 @@ class Login extends React.Component {
   render() {
     return (
       <main>
-        <section className="section ">
-          <div className="login-header"></div>
-
+        <section className="section login-header">
           <div className="columns">
             <div className="column">
               <div className="has-text-centered">
@@ -64,6 +62,7 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
+
         </section>
         <FooterHomepage />
       </main>
