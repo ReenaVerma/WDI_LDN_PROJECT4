@@ -124,8 +124,9 @@ class GoogleMap extends React.Component {
     axios.get('/api/users')
       .then(res => this.setState({ users: res.data }, () =>  {
         console.log('USERS', this.state.users);
-
         console.log('USERS length', this.state.users.length);
+
+
 
         this.state.users.map(user => {
           console.log('USER LOCATION', user.userLocation);
@@ -195,7 +196,6 @@ class GoogleMap extends React.Component {
 
   getLocation = () => {
 
-
     navigator.geolocation.getCurrentPosition(pos => {
 
       const that = this;
@@ -225,7 +225,6 @@ class GoogleMap extends React.Component {
       // this.props.setLocation(latlng);
 
 
-
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
@@ -235,6 +234,10 @@ class GoogleMap extends React.Component {
 
             that.setState({userLocation: results[0].formatted_address});
             console.log('current address is: ' + that.userCurrentAddress);
+
+            document.getElementById('finding').innerHTML = that.state.userLocation;
+
+
 
             that.map.setCenter(latlng);
             const marker = new google.maps.Marker({
@@ -285,14 +288,18 @@ class GoogleMap extends React.Component {
       // then we pass in this.mapDIV to appear in the DOM as the element.
       <div>
         <section className="">
+          <h1 className="has-text-centered cat-titles">Cool Dudes Nearby to Chill With... </h1>
           <div className="columns has-text-centered">
             <div className="column">
               <div className="location">
                 <i className="fas fa-map-marker fa-3x gold"></i>
-                <h2 className="sub-title">Finding your location...</h2>
-                <p>{this.state.userLocation}</p>
+                <h2 className="sub-title">Your current travel location...</h2>
+                {/* <p id="finding">{this.state.userLocation}</p> */}
+                <p id="finding">finding your location...</p>
               </div>
             </div>
+          </div>
+          <div className="columns has-text-centered">
             <div className="column">
               <div className="location">
                 <i className="fas fa-users fa-3x gold"></i>
@@ -301,14 +308,12 @@ class GoogleMap extends React.Component {
               </div>
             </div>
           </div>
-        </section>
-
-        <section>
-
           <div className="columns has-text-centered">
             <div className="column">
               <div className="google-map" ref={element => this.mapDiv = element}></div>
             </div>
+          </div>
+          <div className="columns has-text-centered">
             <div className="column">
               <div className="location">
                 <p className="buttons is-centered">
@@ -321,6 +326,10 @@ class GoogleMap extends React.Component {
               </div>
             </div>
           </div>
+        </section>
+
+        <section>
+
         </section>
       </div>
 

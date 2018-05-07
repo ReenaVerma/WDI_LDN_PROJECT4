@@ -44,7 +44,7 @@ class Navbar extends React.Component {
       <nav className="navbar is-white">
         <div className="navbar-brand">
           <Link className="navbar-item logo gold" to="/">
-            hit me up
+            <span className="logo">hit me up</span>
           </Link>
           <div
             className={`navbar-burger ${this.state.navIsOpen ? 'is-active' : ''}`}

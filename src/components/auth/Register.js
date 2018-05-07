@@ -46,9 +46,10 @@ class Register extends React.Component {
           <div className="has-text-centered">
             <h1 className="normal-title">Register</h1>
           </div>
-          <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
+          {/* <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
             <source src="../../assets/images/cut.mp4" type="video/mp4" />
-          </video>
+          </video> */}
+          <div className="register-header"></div>
 
           <form className="registration-form" onSubmit={this.handleSubmit}>
 

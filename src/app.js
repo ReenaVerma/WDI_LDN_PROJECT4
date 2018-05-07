@@ -26,20 +26,18 @@ class App extends React.Component {
 
       <BrowserRouter>
 
-
-
         <section>
           <Navbar />
           {/* <DarkSky /> */}
           <FlashMessages />
           <Switch>
 
-            <Route path="/hub/:id" component={Show} />
+            <ProtectedRoute path="/hub/:id" component={Show} />
             <ProtectedRoute path="/users/:id" component={UserPage} />
             <ProtectedRoute path="/users" component={SearchUsers} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/hub" component={HubPage} />
+            <ProtectedRoute path="/hub" component={HubPage} />
             <Route path="/" component={HomePage} />
 
           </Switch>

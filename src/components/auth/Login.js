@@ -3,7 +3,7 @@ import axios from 'axios';
 import Auth from '../../lib/Auth';
 import '../../assets/scss/main.scss';
 // import Flash from '../../lib/Flash';
-
+import FooterHomepage from '../../components/common/FooterHomepage';
 
 class Login extends React.Component {
 
@@ -33,9 +33,7 @@ class Login extends React.Component {
     return (
       <main>
         <section className="section ">
-          <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
-            <source src="../../assets/images/cut.mp4" type="video/mp4" />
-          </video>
+          <div className="login-header"></div>
           <div className="has-text-centered">
             <h1 className="normal-title">Login</h1>
           </div>
@@ -67,6 +65,7 @@ class Login extends React.Component {
             <button className="button is-primary is-outlined">Submit</button>
           </form>
         </section>
+        <FooterHomepage />
       </main>
     );
   }
