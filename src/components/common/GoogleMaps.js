@@ -303,7 +303,7 @@ class GoogleMap extends React.Component {
             <div className="column">
               <div className="location">
                 <i className="fas fa-users fa-3x gold"></i>
-                <h2 className="sub-title">There are {this.state.users.length} users in your area!</h2>
+                <h2 className="sub-title">There are {this.state.users.length} 9 users registered</h2>
                 <p>Use the map below to message your users!</p>
               </div>
             </div>
