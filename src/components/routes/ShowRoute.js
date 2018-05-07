@@ -25,7 +25,7 @@ class ShowRoute extends React.Component {
   render() {
     return (
 
-      <section className="section">
+      <section className="section comments-section">
         {this.state.user &&
         <div className="has-text-centered">
           <div className="profile-title">user: {this.state.user.username}</div>
@@ -47,25 +47,27 @@ class ShowRoute extends React.Component {
               <p className="profile-subtitle has-text-left"><strong>Last Login: {this.state.lastLogin}</strong></p>
               <br />
 
-              <div className="columns">
+              {/* <div className="columns">
                 <div className="column"><i className="fas fa-venus fa-2x"></i></div>
                 <div className="column"><i className="fas fa-2x fa-bicycle"></i></div>
                 <div className="column"><i className="fas fa-glass-martini fa-2x"></i></div>
-
-              </div>
-
+              </div> */}
 
               <p className="profile-subtitle has-text-left">Age: <Moment fromNow ago>{this.state.user.date}</Moment></p>
               <p className="profile-subtitle has-text-left">Travelling with: {this.state.user.travelling}</p>
               <hr />
               <p className="profile-subtitle has-text-left">About me: </p>
               <p className="has-text-left">{this.state.user.description}</p>
+
+            </div>
+
+            <div className="column">
+              <div className="profile-title">Post on {this.state.user.username}s wall!</div>
             </div>
           </div>
-
         </div>}
-
       </section>
+
 
 
     );

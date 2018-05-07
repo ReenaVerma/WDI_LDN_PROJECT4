@@ -59,10 +59,6 @@ class Comments extends React.Component {
 
 
       <section className="section">
-        <div className="messages-title">Messages</div>
-
-        <hr />
-
         {this.state.user && this.state.user.messages.map(message =>
           <div key={message._id} className="columns is-multiline">
             <div className="column">
@@ -77,9 +73,7 @@ class Comments extends React.Component {
                   </figure>
                 </div>
                 <p>{message.content}</p>
-                <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete  message</a>
-
-
+                <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete message</a>
               </div>
             </div>
 

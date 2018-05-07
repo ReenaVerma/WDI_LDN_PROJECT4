@@ -128,9 +128,9 @@ class Hub extends React.Component {
   //   this.getYelp();
   // }
 
-  componentDidMount() {
-    this.getYelp();
-  }
+  // componentDidMount() {
+  //   this.getYelp();
+  // }
 
 
   render() {

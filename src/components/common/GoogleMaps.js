@@ -311,9 +311,13 @@ class GoogleMap extends React.Component {
             </div>
             <div className="column">
               <div className="location">
-                <i className="far fa-comments fa-3x gold"></i>
-                <h2 className="sub-title">Search more users</h2>
-                <Link to="/users"><p>Filter and browse</p></Link>
+                <p className="buttons is-centered">
+                  <Link to="/users" className="button is-large is-primary">search for more users nearby &nbsp;&nbsp;
+                  <span className="icon is-medium">
+                    <i className="far fa-arrow-alt-circle-right has-text-white"></i>
+                  </span>
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
