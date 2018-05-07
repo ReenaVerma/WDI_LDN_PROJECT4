@@ -34,36 +34,36 @@ class Login extends React.Component {
       <main>
         <section className="section ">
           <div className="login-header"></div>
-          <div className="has-text-centered">
-            <h1 className="normal-title">Login</h1>
+
+          <div className="columns">
+            <div className="column">
+              <div className="has-text-centered">
+                <h1 className="normal-title">Login</h1>
+              </div>
+              <form className="credentials-form" onSubmit={this.handleSubmit}>
+                <div className="field">
+                  <label htmlFor="email"></label>
+                  <input
+                    className="input"
+                    placeholder="Email"
+                    name="email"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <div className="field">
+                  <label htmlFor="password"></label>
+                  <input
+                    type="password"
+                    className="input"
+                    placeholder="Password"
+                    name="password"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                <button className="button is-primary is-outlined">Submit</button>
+              </form>
+            </div>
           </div>
-
-
-          <form className="credentials-form" onSubmit={this.handleSubmit}>
-
-            <div className="field">
-              <label htmlFor="email"></label>
-              <input
-                className="input"
-                placeholder="Email"
-                name="email"
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="password"></label>
-              <input
-                type="password"
-                className="input"
-                placeholder="Password"
-                name="password"
-                onChange={this.handleChange}
-              />
-            </div>
-
-
-            <button className="button is-primary is-outlined">Submit</button>
-          </form>
         </section>
         <FooterHomepage />
       </main>

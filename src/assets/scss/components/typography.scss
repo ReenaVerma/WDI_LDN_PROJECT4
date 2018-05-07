@@ -88,11 +88,14 @@ p {
 }
 
 .normal-title {
-  color: #47c5ac;
+  color: #fff;
   padding: 5px;
   font-family: 'Pacifico', cursive;
-  font-size: 50px;
+  font-size: 60px;
+  margin-top: 30px;
   margin-bottom: 20px;
+  text-shadow: 3px 3px 3px #F765B8,
+             3px 3px 5px #27FDF5;
 }
 
 .profile-subtitle {
