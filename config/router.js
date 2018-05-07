@@ -14,10 +14,6 @@ router.route('/users/:id')
   .get(users.show)
   .put(users.update);
 
-
-// router.route('/hub')
-//   .get(users.show);
-
 // my user profile routes
 router.route('/register')
   .post(auth.register);

@@ -119,6 +119,7 @@ class GoogleMap extends React.Component {
 
   }
 
+
   getUsers() {
     axios.get('/api/users')
       .then(res => this.setState({ users: res.data }, () =>  {
@@ -138,19 +139,24 @@ class GoogleMap extends React.Component {
               // anchor: new google.maps.Point(0, 0) // anchor
             };
 
+
             // return new google.maps.Marker({
             const marker = new google.maps.Marker({
               // map: this.map,
               position: user.userLocation,
               zoom: 15,
-              icon: image
+              icon: image,
+              animation: google.maps.Animation.BOUNCE
             });
             marker.setMap(this.map);
 
 
+
+
+
             //HERE WE ARE DEFINING INFO WINDOWS
             const photo = user.image;
-
+            // photo.classList.add('user-photo');
 
 
             const infoContent = `
@@ -294,44 +300,21 @@ class GoogleMap extends React.Component {
                 <p>Use the map below to message your users!</p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section>
+
+          <div className="columns has-text-centered">
+            <div className="column">
+              <div className="google-map" ref={element => this.mapDiv = element}></div>
+            </div>
             <div className="column">
               <div className="location">
                 <i className="far fa-comments fa-3x gold"></i>
                 <h2 className="sub-title">Search more users</h2>
                 <Link to="/users"><p>Filter and browse</p></Link>
               </div>
-            </div>
-          </div>
-        </section>
-
-
-        <section className="section">
-          <div className="has-text-centered">
-            <h2 className="cat-titles">Most recently logged in...</h2>
-          </div>
-          <div className="columns is-multiline">
-
-            {this.state.users.map((user, i) =>
-              <div key={i} className="column has-text-centered">
-                <div className="card-image">
-                  <Link to="/users/`${user._id}`">
-                    <figure className="image is-64x64 grey-image animated slideInRight">
-                      <img className="is-rounded" src={user.image} alt="Placeholder image" />
-                    </figure>
-                  </Link>
-                </div>
-              </div> )}
-          </div>
-        </section>
-
-        <section>
-          <div className="has-text-centered">
-            <h2 className="cat-titles">Travellers in your area, now!</h2>
-            <br />
-          </div>
-          <div className="columns has-text-centered">
-            <div className="column">
-              <div className="google-map" ref={element => this.mapDiv = element}></div>
             </div>
           </div>
         </section>

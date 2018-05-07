@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Promise from 'bluebird';
 // import Timestamp from 'react-timestamp';
@@ -7,7 +7,7 @@ import '../../assets/scss/main.scss';
 
 import GoogleMaps from '../../components/common/GoogleMaps';
 import Footer from '../../components/common/Footer';
-import Darksky from '../../components/common/Darksky';
+// import Darksky from '../../components/common/Darksky';
 
 
 // const rp = require('request-promise');
@@ -21,7 +21,7 @@ class Hub extends React.Component {
     // latlng: null
     lat: null,
     lng: null,
-    weather: []
+    businesses: []
   }
 
 
@@ -30,90 +30,117 @@ class Hub extends React.Component {
   //   console.log('from reenas hub', this.state.latlng);
   // }
 
+
+
   setLocation = (lat, lng) => {
     console.log('location set...', lat, lng);
     this.setState({ lat: lat, lng: lng }, this.getPlaces);
   }
 
 
-  // getWeather = () => {
-  //   const params = {lat: this.state.lat, lng: this.state.lng};
+  getYelp = () => {
+    // const params = {lat: this.state.lat, lng: this.state.lng};
+    const params = {latitude: 34.019864, longitude: -118.490541 };
+    const urlProxy = 'https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search';
+    Promise.props({
+      businesses: axios({
+        url: urlProxy,
+        params: params,
+        json: true,
+        method: 'GET',
+        // withCredentials: true,
+        headers: {
+          'Authorization': 'Bearer iRl7stJSAQhyiF9CxM2MRT_4O0hNx7MJrQTfWjEG-Yw3PjVKZPzYGFEbl5VR-mrEKZ26WKvM9CnuGn150ogSlyHgLk6XrGSceYuGKUyjhamuOQQ7c58ueyMgWEPLWnYx',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          // 'Origin': 'http://localhost:8000',
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Origin': 'http://localhost:8000'
+        }
+      })
+        .then(res => this.setState({ businesses: res.data}))
+        .then(res => console.log('YELP', res.data))
+
+
+        // .then(res => JSON.stringify(res.data.businseses))
+        .catch(err => console.log(err))
+    });
+  }
+
+  //   <ul className="columns is-multiline">
+  //     {Object.keys(this.state.businesses).map((item, i) => (
+  //       <li key={i} className="column is-one-third">
+  //         <div className="container card">
+  //           <div className="">
+  //             <div className="card-image">
+  //               <figure className="box">
   //
+  //
+  //                 <p className="is-size-4 has-text-left has-text-black">Key:{i} Name:{this.state.businesses[item]}</p>
+  //                 {/* <p className="has-text-left">{[item].name}</p> */}
+  //
+  //               </figure>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </li>))}
+  //   </ul>
+  // </section>
+
+  //
+  // getPlaces = () => {
+  //   const params = {count: 3, lat: 34.019864, lon: -118.490541 };
+  //   if(this.state.lat && this.state.lng) {
+  //     Object.assign(params, { lat: this.state.lat, lon: this.state.lng });
+  //   }
+  //
+  //   //restaurants
   //   Promise.props({
-  //     weather: axios({
-  //       url: 'https://api.darksky.net/forecast',
+  //     restaurants: axios({
+  //       url: 'https://developers.zomato.com/api/v2.1/geocode',
   //       params: params,
   //       json: true,
   //       method: 'GET',
-  //       headers: {'user-key': '75f4aa767c9a552f37a6a6fc099f84f6'}
-  //     }).then(res => console.log(res.data))
-  //       .catch(err => console.log(err))
+  //       headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
+  //     }).then(res => res.data),
+  //
+  //     articles: axios({
+  //       url: 'https://developers.zomato.com/api/v2.1/collections',
+  //       params: params,
+  //       json: true,
+  //       method: 'GET',
+  //       headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
+  //     }).then(res => res.data)
+  //
   //   })
   //     .then(data => {
   //       this.setState({
-  //         weather: data.weather
+  //         places: data.restaurants.nearby_restaurants.slice(0, 6),
+  //         articles: data.articles.collections
   //       });
   //     });
   // }
 
-  getPlaces = () => {
-    const params = {count: 3, lat: 34.019864, lon: -118.490541 };
-    if(this.state.lat && this.state.lng) {
-      Object.assign(params, { lat: this.state.lat, lon: this.state.lng });
-    }
-
-    //restaurants
-    Promise.props({
-      restaurants: axios({
-        url: 'https://developers.zomato.com/api/v2.1/geocode',
-        params: params,
-        json: true,
-        method: 'GET',
-        headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
-      }).then(res => res.data),
-
-      articles: axios({
-        url: 'https://developers.zomato.com/api/v2.1/collections',
-        params: params,
-        json: true,
-        method: 'GET',
-        headers: {'user-key': '54cfeea773535a894eba2d22e77cd0d8'}
-      }).then(res => res.data)
-
-    })
-      .then(data => {
-        this.setState({
-          places: data.restaurants.nearby_restaurants.slice(0, 6),
-          articles: data.articles.collections
-        });
-      });
 
 
-  }
-
+  // componentWillMount() {
+  //   // this.getPlaces();
+  //   this.getYelp();
+  // }
 
   componentDidMount() {
-    this.getPlaces();
-    // this.getWeather();
-
-    // axios.get('https://api.darksky.net/forecast/75f4aa767c9a552f37a6a6fc099f84f6/50.830133,-0.137434')
-    //   .then(res => {
-    //     console.log('WEATHER', res.data);
-    //     this.setState(
-    //       { weather: res.data });
-    //   });
+    this.getYelp();
   }
-
 
 
   render() {
     // console.log('hub state update', this.state.latlng);
-    console.log('places', this.state.places);
-    console.log('weather', this.state.weather);
+    // console.log('PLACES', this.state.places);
+    console.log('BUSINESS in JSX', this.state.businesses);
     // console.log(this.state.data.places);
     // if places is null/false and nothing has loaded, dont run the code below.
     // if places is truthy, then run code below
-    if (!this.state.places) return false;
+    if (!this.state.businesses) return false;
     return (
 
       <main>
@@ -124,7 +151,7 @@ class Hub extends React.Component {
             </div>
           </div>
         </section>
-        <Darksky />
+        {/* <Darksky /> */}
 
         <section className="section">
           <div className="columns">
@@ -134,7 +161,34 @@ class Hub extends React.Component {
           </div>
         </section>
 
-        <section className=" grey section">
+        <section className="section">
+          <div className="has-text-centered">
+            <h1 className="has-text-centered cat-titles">YELP:</h1>
+          </div>
+          <ul className="columns is-multiline">
+
+            {this.state.businesses.map((business, i) =>
+              <li key={i} className="column is-one-third">
+                <div className="container card">
+                  <div className="">
+                    <div className="card-image">
+                      <figure className="box">
+
+
+                        <p className="is-size-4 has-text-left has-text-black">{business.businesses[0].name}</p>
+                        {/* <p className="has-text-left">{business.name}</p> */}
+
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+              </li>)}
+          </ul>
+        </section>
+
+
+        {/* <section className=" grey section">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Tours to Book in your Area: </h1>
           </div>
@@ -157,10 +211,10 @@ class Hub extends React.Component {
                 </div>
               </li>)}
           </ul>
-        </section>
+        </section> */}
 
 
-        <section className="section">
+        {/* <section className="section">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Trending in your Neighbourhood:</h1>
           </div>
@@ -182,32 +236,9 @@ class Hub extends React.Component {
                 </div>
               </li>)}
           </ul>
-        </section>
+        </section> */}
 
-        <section className="grey section">
-          <div className="has-text-centered">
-            <h1 className="has-text-centered cat-titles">Restaurants Nearby: </h1>
-          </div>
-          <ul className="columns is-multiline">
-            {this.state.places.map((place, i) =>
-              <li key={i} className="column is-2">
-                <div className="container card">
-                  <div className="">
-                    <div className="card-image">
-                      <img src={place.restaurant.featured_image}/>
-                      <figure className="box">
-                        <p className="is-size-4 has-text-left has-text-black">{place.restaurant.name}</p>
-                        {/* <p className="has-text-left">{place.restaurant.location.address}</p> */}
-                        <p className="has-text-left has-text-primary">User rating: {place.restaurant.user_rating.rating_text}</p>
-                        <p className="has-text-left has-text-primary">Votes: {place.restaurant.user_rating.votes}</p>
-                        <Link className="gold has-text-left pink" to={place.restaurant.events_url} target="_blank">book a table now</Link>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-              </li>)}
-          </ul>
-        </section>
+
 
         <Footer />
       </main>
