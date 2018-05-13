@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import '../../assets/scss/main.scss';
-// import Flash from '../../lib/Flash';
+import Flash from '../../lib/Flash';
 import FooterHomepage from '../../components/common/FooterHomepage';
 
 class Login extends React.Component {
@@ -24,7 +24,7 @@ class Login extends React.Component {
       //when you login, everytime you get a new token
       // .then(res => localStorage.setItem('token', res.data.token))
       .then(res => Auth.setToken(res.data.token))
-      // .then(() => Flash.setMessage('success', 'Welcome back!'))
+      .then(() => Flash.setMessage('success animated slideInRight', 'Welcome back! Now go meet some people!'))
       .then(() => this.props.history.push('/hub'));
     console.log(this.state);
   }

@@ -86,6 +86,29 @@
       background-size: cover;
       height: 100%;
       overflow: hidden;
-
    }
+}
+
+.notification.is-success {
+    position: absolute;
+    background-color: #47c5ac !important;
+    color: #fff;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.notification.is-primary {
+    position: absolute;
+    background-color: #47c5ac !important;
+    color: #fff;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.notification.is-danger {
+    position: absolute;
+    background-color: red;
+    color: #fff;
+    margin-top: 60px;
+    width: 100%;
 }

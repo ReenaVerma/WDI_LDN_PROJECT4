@@ -4,6 +4,7 @@ import Auth from '../../lib/Auth';
 import Footer from '../../components/common/Footer';
 import '../../assets/scss/main.scss';
 import ReactFilestack from 'filestack-react';
+import Flash from '../../lib/Flash';
 
 
 class Register extends React.Component {
@@ -25,7 +26,8 @@ class Register extends React.Component {
     axios.post('/api/register', this.state)
       // .then(res => localStorage.setItem('token', res.data.token))
       .then(res => Auth.setToken(res.data.token))
-      .then(() => this.props.history.push('/hub'));
+      .then(() => this.props.history.push('/hub'))
+      .then(() => Flash.setMessage('success animated slideInRight', 'Thanks for registering! Now log in!'));
   }
 
   render() {
@@ -52,7 +54,7 @@ class Register extends React.Component {
           <div className="columns">
             <div className="column">
 
-            <div className="register-header"></div>
+              <div className="register-header"></div>
               <form className="registration-form" onSubmit={this.handleSubmit}>
                 <div className="field">
                   <label htmlFor="username"></label>

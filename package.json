@@ -57,6 +57,7 @@
     "promises": "^0.2.5",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-messages": "^1.3.2",
     "react-moment": "^0.7.0",
     "react-router-dom": "^4.2.2",
     "react-timestamp": "^4.4.0",
