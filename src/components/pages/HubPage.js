@@ -203,7 +203,7 @@ class Hub extends React.Component {
                       <img src={place.restaurant.featured_image}/>
                       <figure className="box">
                         <p className="is-size-4 has-text-left has-text-black">{place.restaurant.name}</p>
-                        <p className="has-text-left"><strong>Average price: {place.restaurant.currency}{place.restaurant.average_cost_for_two}</strong></p>
+                        <p className="has-text-left"><strong>Price for 2: {place.restaurant.currency}{place.restaurant.average_cost_for_two}</strong></p>
                         <p className="has-text-left has-text-primary is-bold">User rating: {place.restaurant.user_rating.rating_text}</p>
                         <p className="has-text-left has-text-primary">Votes:{place.restaurant.user_rating.votes}</p>
                         <Link className="gold has-text-left pink" to={place.restaurant.events_url} target="_blank">make a booking</Link>

@@ -7,8 +7,8 @@ For my final project, I developed a web app, (built with a mobile first experien
 
 The app is called "Hit Me Up", which is a website travellers can use, to connect with other travellers online, whilst abroad. The primary function is find and message other users nearby.  And the secondary function, is to see restaurant/bar related content, based on your logged in location, to help plan the user's social life!
 
-##### Visit[ https://hit-me-up-app.herokuapp.com//](https://hit-me-up-app.herokuapp.com/) to register and search for users nearby.
 
+##### Visit[ https://hit-me-up-app.herokuapp.com//](https://hit-me-up-app.herokuapp.com/) to register and search for users nearby.
 
 <p align="center"><img src="https://i.imgur.com/9EBg6kV.jpg" width="700"></p>
 
@@ -22,16 +22,6 @@ The app is called "Hit Me Up", which is a website travellers can use, to connect
 <li>Being able to drop all registered user's locations on Google Maps.</li>
 <li>Leave a comment on a user's profile.</li>
 </ul>
-
-<p align="center">
-<img src="https://i.imgur.com/uGIeQds.jpg" width="300">
-<img src="https://i.imgur.com/e4DhGd1.png" width="300">
-</p>
-<p align="center">
-<img src="https://i.imgur.com/BCJjjyM.png
-" width="300">
-<img src="https://i.imgur.com/Wujqw23.png" width="300">
-</p>
 
 ---
 ## Extra Features Added:
@@ -47,7 +37,14 @@ The app is called "Hit Me Up", which is a website travellers can use, to connect
 <li>Flash messages.</li>
 </ul>
 
-<p align="center"><img src="https://i.imgur.com/oj42m5Q.jpg" width="700"></p>
+<p align="center">
+<img src="https://i.imgur.com/uGIeQds.jpg" width="250">
+<img src="https://i.imgur.com/e4DhGd1.png" width="250">
+<img src="https://i.imgur.com/BCJjjyM.png" width="250">
+<img src="https://i.imgur.com/Wujqw23.png" width="250">
+</p>
+
+
 
 ---
 ## Challenges:
@@ -67,29 +64,30 @@ I also love the fact, I've been able to build a networking app with this project
 
 Adding the filter function also made this app feel more realistic and user friendly.
 
-<p align="center"><img src="https://i.imgur.com/UmgARYY.jpg" width="700"></p>
-
+<p align="center"><img src="https://i.imgur.com/TK3B5UD.jpg" width="700"></p>
 
 ---
-###### Summary:
-I' really, really proud of this project.  This is the first time in my entire life, I've built anything incorporating databases, user authentication, APIs, REST, commenting, rating and reviewing - all in Express and Node.js.
+### Summary:
+This is by far my favourite app I've built so far.  The user experience and MVP is so simple, which I believe is the key to a great app. The added extras, also help to polish off the app well, to give it a modern day messaging app look and feel.  
 
-I built this website, whilst almost 5 weeks into my FullStack Web Development course at General Assembly and I am so proud at how far I had come, in such a short amount of time.
+I also really enjoyed developing with ReactJS.  Of all the frameworks I've used, it's by my favourite, due to it's simplicity in developing client-side and the use of components.
 
-Visually, I think the site looks great too, which really showcases my front-end flair.
+This project also made me learn the importance of really thinking out the development of an app, before even writing one line of code.  Ways I can mitigate this, is by planning with pen and paper first and really understanding how the MVP needs to be built and connected.
 
-<p align="center"><img src="https://i.imgur.com/jY7hSd4.png" width="700"></p>
-
-
-###### Enhancements:
+### Enhancements:
 Further enhancements I'd like to make in future include:
-- being able to upload more than one photo, on an event listing page.  Essentially allowing users to create a photo gallery of the event.
-- Creating a more dynamic, sexy looking rating and reviewing functionality.
+- Adding an edit/update route, where users can add additional interests to their profile.  Such as - interested in "cycling, culture, bars, beaches" etc.  And then enhancing the search users filter, so travellers can be matched/searched for, by shared interests.
+- I'd also like to change my API from Zomato to YELP, as YELP's API includes more nightlife related content.
+- It would be great to allow a user to share/hide their location - to protect location privacy.
 
-###### Setup instructions:
+
+### Setup instructions:
 <ul>
 <li>Clone or download the repo. </li>
 <li>Install dependencies with yarn install or npm install</li>
 <li>Run mongod</li>
-<li>Launch the app with yarn start.</li>
+<li>Launch the app with yarn start:server.</li>
+<li>And then yarn start:client.</li>
 </ul>
+
+<p align="center"><img src="https://i.imgur.com/oj42m5Q.jpg" width="700"></p>
