@@ -26,8 +26,8 @@ class Register extends React.Component {
     axios.post('/api/register', this.state)
       // .then(res => localStorage.setItem('token', res.data.token))
       .then(res => Auth.setToken(res.data.token))
-      .then(() => this.props.history.push('/hub'))
-      .then(() => Flash.setMessage('success animated slideInRight', 'Thanks for registering! Now log in!'));
+      .then(() => Flash.setMessage('success animated slideInRight', 'Thanks for registering! Now log in!'))
+      .then(() => this.props.history.push('/hub'));
   }
 
   render() {
