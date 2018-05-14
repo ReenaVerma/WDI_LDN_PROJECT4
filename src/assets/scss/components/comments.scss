@@ -1,14 +1,14 @@
 .messages-title {
   font-family: 'Pacifico', cursive;
   font-size: 25px;
-  background-color: #47c5ac;
+  background-color: $mint;
   height: 50px;
-  color: white;
+  color: $white;
   padding: 5px;
 }
 
 .user-title {
-  border-bottom: 2px solid #e4e4e4;
+  border-bottom: 2px solid $lighter-grey;
   height: 35px;
   padding: 5px;
 }

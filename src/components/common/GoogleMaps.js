@@ -5,8 +5,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Auth from '../../lib/Auth';
 import '../../assets/scss/main.scss';
-// import GetLocation from '../../components/common/GetLocation';
-
 
 class GoogleMap extends React.Component {
 
@@ -19,6 +17,7 @@ class GoogleMap extends React.Component {
     }
   };
 
+  // SETTING GOOGLE MAPS DIV
   componentDidMount() {
     this.getLocation();
 
@@ -113,35 +112,33 @@ class GoogleMap extends React.Component {
         }
       ]
     });
+
     //update markers in
     this.infoWindow = new google.maps.InfoWindow;
     this.getUsers();
-
   }
 
 
+  // GET USERS FROM API/ROUTE
   getUsers() {
     axios.get('/api/users')
       .then(res => this.setState({ users: res.data }, () =>  {
         console.log('USERS', this.state.users);
-        console.log('USERS length', this.state.users.length);
+        // console.log('USERS length', this.state.users.length);
 
-
-
+        // MAP THROUGH USERS
         this.state.users.map(user => {
           console.log('USER LOCATION', user.userLocation);
           if (user.userLocation) {
 
-
+            // SET PIN IMAGE
             const image = {
-              url: user.image, // url
-              scaledSize: new google.maps.Size(110, 80), // scaled size
-              origin: new google.maps.Point(10,10) // origin
-              // anchor: new google.maps.Point(0, 0) // anchor
+              url: user.image,
+              scaledSize: new google.maps.Size(110, 80),
+              origin: new google.maps.Point(10,10)
             };
 
-
-            // return new google.maps.Marker({
+            // SET MARKER POSITION
             const marker = new google.maps.Marker({
               // map: this.map,
               position: user.userLocation,
@@ -152,14 +149,8 @@ class GoogleMap extends React.Component {
             marker.setMap(this.map);
 
 
-
-
-
             //HERE WE ARE DEFINING INFO WINDOWS
             const photo = user.image;
-            // photo.classList.add('user-photo');
-
-
             const infoContent = `
               <br/>
               <strong>User: ${user.username}</strong><br/>
@@ -179,78 +170,50 @@ class GoogleMap extends React.Component {
               infoWindow.open(this.map, marker);
             });
           }
-
-
         });
       }));
   }
 
-  // componentWillReceiveProps({ center, zoom }) {
-  //   //like scope.$watch
-  //   // console.log(props);
-  //   this.map.setCenter(center);
-  //   this.map.setZoom(zoom);
-  //   // marker prop here
-  // }
-
-
+  // GEOLOCATION FUNCTION
   getLocation = () => {
-
     navigator.geolocation.getCurrentPosition(pos => {
 
       const that = this;
-
-
-      //passing props info here, into page where this function is written (Hub Page)
-      // this.props.setLocation(latlng);
-
       const lat = pos.coords.latitude;
       const lng = pos.coords.longitude;
       //passing props info here, into page where this function is written (Hub Page)
-      // this.props.setLocation(latlng);
       this.props.setLocation(lat, lng);
-
-
-
 
       const userCurrentLat = pos.coords.latitude;
       const userCurrentLng = pos.coords.longitude;
-
 
       //I now need to convert the lat and long in to an origin
       const latlng = {lat: userCurrentLat, lng: userCurrentLng};
       console.log('Lat n lng', latlng);
 
-      //passing props info here, into page where this function is written (Hub Page)
-      // this.props.setLocation(latlng);
-
-
+      // IF LOCATION FOUND, SET A FORMATTED ADDRESS
       const geocoder = new google.maps.Geocoder;
       geocoder.geocode({'location': latlng}, function(results, status) {
         if (status === 'OK') {
           if (results[0]) {
             // successfully found
             that.userCurrentAddress = results[0].formatted_address;
-
             that.setState({userLocation: results[0].formatted_address});
             console.log('current address is: ' + that.userCurrentAddress);
-
             document.getElementById('finding').innerHTML = that.state.userLocation;
 
-
-
+            // DROP LOCATION ON THE MAP
             that.map.setCenter(latlng);
             const marker = new google.maps.Marker({
               position: latlng,
-              title: 'Hello World!',
+              title: 'YOUR LOCATION!',
               animation: google.maps.Animation.DROP
             });
             // To add the marker to the map, call setMap();
             marker.setMap(that.map);
 
 
-
-            // update user with latest location
+            // UPDATE USER WITH WITH LATEST LOCATION
             const userId = Auth.getPayload().sub;
             axios.get(`/api/users/${userId}`)
               .then(user => {
@@ -261,8 +224,6 @@ class GoogleMap extends React.Component {
               .then(res => console.log('new saved user', res.data))
               .catch(err => console.error(err));
 
-
-
           } else {
             // not found
             console.log('No results found');
@@ -271,13 +232,10 @@ class GoogleMap extends React.Component {
           // google failure
           console.log('Geocoder failed due to: ' + status);
         }
-
       });
-      //then I need to input the origin in the the google-maps directive
     }, err => {
       console.warn(err.code, err.message);
     });
-
   }
 
 
@@ -294,7 +252,6 @@ class GoogleMap extends React.Component {
               <div className="location">
                 <i className="fas fa-map-marker fa-3x gold"></i>
                 <h2 className="sub-title">Your current travel location...</h2>
-                {/* <p id="finding">{this.state.userLocation}</p> */}
                 <p id="finding">finding your location...</p>
               </div>
             </div>
@@ -327,15 +284,9 @@ class GoogleMap extends React.Component {
             </div>
           </div>
         </section>
-
-        <section>
-
-        </section>
       </div>
-
     );
   }
-
 }
 
 export default GoogleMap;

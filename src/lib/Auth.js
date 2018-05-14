@@ -11,11 +11,9 @@ class Auth {
     localStorage.setItem('token', token);
   }
 
-
   static getToken() {
     return localStorage.getItem('token');
   }
-
 
   // at the moment theres a 6 hours timeout on tokens
   static getPayload() {
@@ -38,9 +36,7 @@ class Auth {
     const now = Math.round(Date.now() / 1000 );
 
     // we want to make sure the token is still valid
-
     return now < payload.exp;
-
   }
 }
 

@@ -2,6 +2,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/environment');
 
+// CREATE USER RECORD AND ASSIGN JWT AND SECRET
 function register(req, res, next) {
   User.create(req.body)
     .then(user => {
@@ -11,7 +12,8 @@ function register(req, res, next) {
     .catch(next);
 }
 
-
+// LOGIN - 401 IF PASSWORD DOESNT MATCH, OR ASSIGN JWT/SECRET AND LOGIN
+// HERE WE'RE SAVING THE LOGIN DATE
 function login(req, res, next) {
   User.findOne({ email: req.body.email })
     .then(user => {
@@ -30,27 +32,7 @@ function login(req, res, next) {
     .catch(next);
 }
 
-// HUB PAGE
-function show(req, res, next) {
-  User.findById(req.params.id)
-    .then(user => res.json(user))
-    .catch(next);
-}
-
-// UPDATE PROFILE PAGE
-function update(req, res, next) {
-  User.findById(req.params.id)
-    .then(user => Object.assign(user, req.body))
-    .then(user => user.save())
-    .then(user => res.json(user))
-    .catch(next);
-}
-
-
 module.exports = {
   register,
-  login,
-  show,
-  update
-
+  login
 };

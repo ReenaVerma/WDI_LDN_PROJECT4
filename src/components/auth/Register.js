@@ -4,29 +4,23 @@ import Auth from '../../lib/Auth';
 import Footer from '../../components/common/Footer';
 import '../../assets/scss/main.scss';
 import ReactFilestack from 'filestack-react';
-// import Flash from '../../lib/Flash';
 
 
 class Register extends React.Component {
-
-
   state = {
-
   }
 
-
-
+  // LOGGING FORM VALUES AND SETTING TO STATE
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value }, () => console.log(this.state));
-  };
-  // console.log(e.target.value);
+  }; // console.log(e.target.value);
 
+
+  // POSTING TO REGISTER
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post('/api/register', this.state)
-      // .then(res => localStorage.setItem('token', res.data.token))
       .then(res => Auth.setToken(res.data.token))
-      // .then(() => Flash.setMessage('success animated slideInRight', 'Thanks for registering! Now log in!'))
       .then(() => this.props.history.push('/hub'));
   }
 
@@ -44,16 +38,12 @@ class Register extends React.Component {
 
     return (
       <main>
-        <section className="section">
+        <section className="section animated fadeIn">
           <div className="has-text-centered">
             <h1 className="normal-title">Register</h1>
           </div>
-          {/* <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
-            <source src="../../assets/images/cut.mp4" type="video/mp4" />
-          </video> */}
           <div className="columns">
             <div className="column">
-
               <div className="register-header"></div>
               <form className="registration-form" onSubmit={this.handleSubmit}>
                 <div className="field">
@@ -73,7 +63,6 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-
                 {/* GENDER */}
                 {/* <div className="field">
                   <label className="radio" htmlFor="gender">option1</label>
@@ -102,8 +91,6 @@ class Register extends React.Component {
                     name="female"
                     onChange={this.handleChange}
                   /> */}
-
-
                 {/* AGE */}
                 <div className="field">
                   <label className="date" htmlFor="date">Date of Birth</label>
@@ -116,8 +103,6 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-
-                {/* TRAVELLING WITH */}
                 <div className="field">
                   <label>Travelling with:</label>
                   <br />
@@ -131,7 +116,6 @@ class Register extends React.Component {
                     </select>
                   </div>
                 </div>
-
                 <div className="field">
                   <label htmlFor="password"></label>
                   <input
@@ -171,7 +155,6 @@ class Register extends React.Component {
                     onChange={this.handleChange}
                   />
                 </div>
-
                 <button className="button is-primary is-outlined">Submit</button>
               </form>
             </div>

@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import '../../assets/scss/main.scss';
-// import { Link, withRouter } from 'react-router-dom';
 
-// const Navbar = () => {
 
 class Comments extends React.Component {
 
@@ -13,18 +11,20 @@ class Comments extends React.Component {
     newMessage: ''
   }
 
+  // GET USER BY ID
   componentDidMount(){
     axios.get(`/api/users/${this.props.userId}`)
       .then(res => this.setState({ user: res.data }, () => {
         console.log('profile page', this.state.user);
       }));
   }
+
+  // SET MESSAGE TO STATE
   handleChange = (e) => {
     this.setState({ newMessage: e.target.value }, () => console.log(this.state));
   };
 
-
-
+  // POST MESSAGE TO USERS/ID/MESSAGES
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,8 +40,8 @@ class Comments extends React.Component {
       });
   }
 
+  // DELETE MESSAGE
   deleteComment = (id) => {
-
     axios({
       method: 'DELETE',
       url: `/api/users/${this.state.user._id}/messages/${id}`,
@@ -49,23 +49,17 @@ class Comments extends React.Component {
     })
       .then(res => this.setState({ user: res.data }))
       .catch(err => console.error(err));
-
   }
 
 
   render() {
     console.log(this.state.user);
     return (
-
-
       <section className="section">
         {this.state.user && this.state.user.messages.map(message =>
           <div key={message._id} className="columns is-multiline">
             <div className="column">
-
-
               <div className="media-content">
-
                 <p className="user-title has-text-black">Posted by member: {message.user.username}</p>
                 <div className="media-left">
                   <figure className="image is-64x64 is-rounded">
@@ -76,14 +70,10 @@ class Comments extends React.Component {
                 <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete message</a>
               </div>
             </div>
-
           </div>
         )}
-
         <div className="columns mobile">
           <div className="column">
-
-
             <form onSubmit={this.handleSubmit}>
               <textarea
                 className="textarea"
@@ -97,15 +87,8 @@ class Comments extends React.Component {
           </div>
         </div>
       </section>
-
-
     );
   }
 }
-
-
-
-
-
 
 export default Comments;

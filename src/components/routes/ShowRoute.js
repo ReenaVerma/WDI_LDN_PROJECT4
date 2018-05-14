@@ -25,7 +25,7 @@ class ShowRoute extends React.Component {
   render() {
     return (
 
-      <section className="section comments-section">
+      <section className="section comments-section animated fadeIn">
         {this.state.user &&
         <div className="has-text-centered">
           <div className="profile-title">user: {this.state.user.username}</div>

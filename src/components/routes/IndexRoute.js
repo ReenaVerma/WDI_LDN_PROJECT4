@@ -73,7 +73,7 @@ class IndexRoute extends React.Component {
 
           <div className="columns is-multiline">
             {this.filterUsernames().map((user, i) =>
-              <div key={i} className="column is-one-third">
+              <div key={i} className="column is-one-third animated slideInUp">
                 <Link to={`/users/${user._id}`}>
 
 

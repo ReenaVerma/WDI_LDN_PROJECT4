@@ -1,22 +1,13 @@
-
-
 body {
   font-family: 'Dosis', sans-serif;
 }
 
-main {
-  border: 0px solid green;
-}
-section {
-  border: 0px solid red;
-}
-
 .grey {
-  background-color: #EDEDED;
+  background-color: $grey;
 }
 
 .card {
-  background-color: #ccc;
+  background-color: $medium-grey;
   padding: 0px;
   border: none;
 }

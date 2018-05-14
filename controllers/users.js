@@ -1,13 +1,14 @@
 const User = require('../models/user');
 
+// FIND ALL USERS
 function indexRoute(req, res, next) {
   User
     .find()
-    .then(users => res.json(users))
+    .then(users => res.json(users))  //passes object/array and also converts non objects at are not json
     .catch(next);
 }
 
-
+// FIND USERS BY ID
 function showRoute(req, res, next) {
   User
     .findById(req.params.id)
@@ -22,6 +23,7 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+// UPDATE USER PROFILE
 function updateRoute(req, res, next) {
   User
     .findById(req.params.id)
@@ -36,8 +38,8 @@ function updateRoute(req, res, next) {
 
 // CREATE FUNCTION FOR COMMENT
 function messagesCreateRoute(req, res, next) {
-  req.body.user = req.currentUser;
   //set the currentuser as the owner of the post created
+  req.body.user = req.currentUser;
   console.log(req.body);
 
   // find the user by ID
@@ -58,10 +60,11 @@ function messagesCreateRoute(req, res, next) {
     .catch(next);
 }
 
+// DELETE COMMENT
 function messagesDeleteRoute(req, res, next) {
   User.findById(req.params.id)
     .then(user => {
-      // push req.body/conten for the form into the comments area
+      // push req.body/contenT for the form into the comments area
       console.log(user);
       const message = user.messages.id(req.params.messageId);
       console.log(message);
@@ -71,10 +74,6 @@ function messagesDeleteRoute(req, res, next) {
     .then(user => res.json(user))
     .catch(next);  //any problems send to error handler
 }
-
-
-
-
 
 
 module.exports = {

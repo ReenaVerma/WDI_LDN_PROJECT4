@@ -50,6 +50,22 @@
    transform: translate(0,0);
  }
 
+ .notification.is-success {
+     position: absolute;
+     background-color: rgba(0,0,0,0.4) !important;
+     color: $white;
+     margin-top: 60px;
+     width: 100% !important;
+ }
+
+ .notification.is-danger {
+     position: absolute;
+     background-color: rgba(0,0,0,0.4) !important;
+     color: $white;
+     margin-top: 60px;
+     width: 100% !important;
+ }
+
  @media only screen and (max-width: 1100px) {
 
    .is-hidden-mobile {
@@ -69,7 +85,6 @@
    }
 
    .register-header {
-     // background-image: url(/assets/images/mobile_beach.jpg);
      -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -87,28 +102,4 @@
       height: 100%;
       overflow: hidden;
    }
-}
-
-.notification.is-success {
-    position: absolute;
-    background-color: #47c5ac !important;
-    color: #fff;
-    margin-top: 60px;
-    width: 100%;
-}
-
-.notification.is-primary {
-    position: absolute;
-    background-color: #47c5ac !important;
-    color: #fff;
-    margin-top: 60px;
-    width: 100%;
-}
-
-.notification.is-danger {
-    position: absolute;
-    background-color: red;
-    color: #fff;
-    margin-top: 60px;
-    width: 100%;
 }

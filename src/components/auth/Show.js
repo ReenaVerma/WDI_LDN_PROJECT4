@@ -10,23 +10,19 @@ class Show extends React.Component {
     lastLogin: null
   };
 
-  // && wait for user to show and then render it
-  //  if left is false, stop.  if true run everything else.
+  // GET USER DATA BASED ON ID
   componentDidMount(){
     axios.get(`/api/hub/${this.props.userId}`)
       .then(res => this.setState({ user: res.data }, () => {
         const now = moment();
         this.setState({ lastLogin: moment(this.state.user.last_login_date).from(now) });
       }));
-
   }
 
 
   render() {
     return (
-
       <section>
-
         <div className="container">
           <h1 className="title">Last Login: {this.state.lastLogin}</h1>
           <ul className="columns is-multiline">
@@ -45,7 +41,6 @@ class Show extends React.Component {
           </ul>
         </div>
       </section>
-
     );
   }
 }

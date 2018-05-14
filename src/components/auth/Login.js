@@ -7,23 +7,19 @@ import FooterHomepage from '../../components/common/FooterHomepage';
 
 class Login extends React.Component {
 
-
   state = {}
 
+  // LOGGING FORM VALUES
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value }, () => console.log(this.state));
-  };
-  // console.log(e.target.value);
+  }; // console.log(e.target.value);
 
+
+  // POSTING FORM DATA TO API
   handleSubmit = (e) => {
-    // prevent default behaviour
     e.preventDefault();
-    // make a post request to /api/Register
-    //send the form data
     axios.post('/api/login', this.state)
-      //when you login, everytime you get a new token
-      // .then(res => localStorage.setItem('token', res.data.token))
-      .then(res => Auth.setToken(res.data.token))
+      .then(res => Auth.setToken(res.data.token)) //when you login, everytime you get a new token
       .then(() => Flash.setMessage('success animated slideInRight', 'Welcome back! Now go meet some people!'))
       .then(() => this.props.history.push('/hub'));
     console.log(this.state);
@@ -32,7 +28,7 @@ class Login extends React.Component {
   render() {
     return (
       <main>
-        <section className="section login-header">
+        <section className="section login-header animated fadeIn">
           <div className="columns">
             <div className="column">
               <div className="has-text-centered">
@@ -62,7 +58,6 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
-
         </section>
         <FooterHomepage />
       </main>

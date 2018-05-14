@@ -3,12 +3,12 @@
   height: 60px;
   position: fixed !important;
   width: 100% !important;
-  border-bottom: 1px solid #e4e4e4;
+  border-bottom: 1px solid $lighter-grey;
 
 
   a {
     font-family: 'Pacifico', cursive;
     font-size: 20px;
-    color: #666 !important;
+    color: $dark-grey !important;
   }
 }
