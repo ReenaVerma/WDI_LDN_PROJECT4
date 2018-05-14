@@ -2,15 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Promise from 'bluebird';
-// import Timestamp from 'react-timestamp';
 import '../../assets/scss/main.scss';
 
 import GoogleMaps from '../../components/common/GoogleMaps';
 import Footer from '../../components/common/Footer';
-// import Darksky from '../../components/common/Darksky';
 
-
-// const rp = require('request-promise');
 
 class Hub extends React.Component {
 
@@ -29,14 +25,6 @@ class Hub extends React.Component {
   //   this.setState({ latlng: latlng });
   //   console.log('from reenas hub', this.state.latlng);
   // }
-
-
-
-  setLocation = (lat, lng) => {
-    console.log('location set...', lat, lng);
-    this.setState({ lat: lat, lng: lng }, this.getPlaces);
-  }
-
 
   // getYelp = () => {
   //   // const params = {lat: this.state.lat, lng: this.state.lng};
@@ -67,6 +55,12 @@ class Hub extends React.Component {
   //   });
   // }
 
+  // componentWillMount() {
+  //   // this.getPlaces();
+  //   this.getYelp();
+  // }
+
+
   //   <ul className="columns is-multiline">
   //     {Object.keys(this.state.businesses).map((item, i) => (
   //       <li key={i} className="column is-one-third">
@@ -87,7 +81,15 @@ class Hub extends React.Component {
   //   </ul>
   // </section>
 
-  //
+
+
+  // GRABBING LOCATION FROM GOOGLE MAPS COMPONENT
+  setLocation = (lat, lng) => {
+    console.log('location set...', lat, lng);
+    this.setState({ lat: lat, lng: lng }, this.getPlaces);
+  }
+
+  // ASSIGN THE NEW LAT AND LNG AMD SET STATE.
   getPlaces = () => {
     const params = {count: 3, lat: 51.515590, lon: -0.065134 };
     if(this.state.lat && this.state.lng) {
@@ -123,12 +125,6 @@ class Hub extends React.Component {
   }
 
 
-
-  // componentWillMount() {
-  //   // this.getPlaces();
-  //   this.getYelp();
-  // }
-
   componentDidMount() {
     // this.getYelp();
     this.getPlaces();
@@ -155,8 +151,6 @@ class Hub extends React.Component {
             </div>
           </div>
         </section>
-
-
         <section className="section">
           <div className="columns">
             <div className="column">
@@ -164,8 +158,6 @@ class Hub extends React.Component {
             </div>
           </div>
         </section>
-
-
         <section className="section">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Awesome Nightlife in your Neighbourhood:</h1>
@@ -189,7 +181,6 @@ class Hub extends React.Component {
               </li>)}
           </ul>
         </section>
-
         <section className="section">
           <div className="has-text-centered">
             <h1 className="has-text-centered cat-titles">Restaurants to Book in your Area: </h1>
@@ -203,7 +194,7 @@ class Hub extends React.Component {
                       <img src={place.restaurant.featured_image}/>
                       <figure className="box">
                         <p className="is-size-4 has-text-left has-text-black">{place.restaurant.name}</p>
-                        <p className="has-text-left"><strong>Price for 2: {place.restaurant.currency}{place.restaurant.average_cost_for_two}</strong></p>
+                        <p className="has-text-left"><strong>Price for two: {place.restaurant.currency}{place.restaurant.average_cost_for_two}</strong></p>
                         <p className="has-text-left has-text-primary is-bold">User rating: {place.restaurant.user_rating.rating_text}</p>
                         <p className="has-text-left has-text-primary">Votes:{place.restaurant.user_rating.votes}</p>
                         <Link className="gold has-text-left pink" to={place.restaurant.events_url} target="_blank">make a booking</Link>
@@ -214,10 +205,8 @@ class Hub extends React.Component {
               </li>)}
           </ul>
         </section>
-
         <Footer />
       </main>
-
     );
   }
 }

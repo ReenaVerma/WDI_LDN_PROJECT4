@@ -8,20 +8,17 @@ class Home extends React.Component {
 
   state = {}
 
+  // LOG FORM INPIT
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value }, () => console.log(this.state));
-  };
-  // console.log(e.target.value);
+  }; // console.log(e.target.value);
 
+
+  // POST FORM DATA
   handleSubmit = (e) => {
-    // prevent default behaviour
     e.preventDefault();
-    // make a post request to /api/Register
-    //send the form data
     axios.post('/api/login', this.state)
-      //when you login, everytime you get a new token
-      // .then(res => localStorage.setItem('token', res.data.token))
-      .then(res => Auth.setToken(res.data.token))
+      .then(res => Auth.setToken(res.data.token)) //when you login, everytime you get a new token
       // .then(() => Flash.setMessage('success', 'Welcome back!'))
       .then(() => this.props.history.push('/hub'));
     console.log(this.state);
@@ -29,8 +26,6 @@ class Home extends React.Component {
 
   render() {
     return (
-
-      // <section className="hero is-large homepage hero-head animated fadeIn is-bold is-mobile">
       <main>
         <section className="section-top">
           <video loop muted autoPlay poster="" className="is-hidden-mobile" id="video">
@@ -43,9 +38,7 @@ class Home extends React.Component {
                 <div className="column has-text-centered">
                   <h1 className="header-title animated fadeIn">hit me up</h1>
                   <h1 className="subtitle-title animated fadeIn">search for likeminded travellers abroad</h1>
-
                   <form className="homepage-form" onSubmit={this.handleSubmit}>
-
                     <div className="field">
                       <label htmlFor="email"></label>
                       <input
@@ -65,24 +58,15 @@ class Home extends React.Component {
                         onChange={this.handleChange}
                       />
                     </div>
-
                     <button className="button is-primary is-outlined">login</button>
                   </form>
                 </div>
               </div>
-
             </div>
           </div>
-
         </section>
         <FooterHomepage />
       </main>
-
-
-
-
-
-
     );
   }
 }

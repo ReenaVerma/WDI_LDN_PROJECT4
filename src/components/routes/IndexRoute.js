@@ -15,45 +15,34 @@ class IndexRoute extends React.Component {
     lastLogin: null
   }
 
-
+  // GET USERS
   componentDidMount(){
     axios.get('/api/users')
       .then(res => this.setState({ users: res.data }, () =>  {
         console.log(this.state);
-        // const now = moment();
-        // this.setState({ lastLogin: moment(this.state.users.last_login_date).from(now) });
       }));
   }
 
-
-
+  // LOG SEARCH FILTER INPUT
   handleChange = (e) => {
-  // console.log(e.target.value);
     console.log(e.target.value);
     this.setState({ search: e.target.value}, () => console.log(this.state));
   }
 
+  // FILTER FUNCTION
   filterUsernames = () => {
-    // return this.state.bangers;
-    //make a regex
-    const regex = new RegExp(this.state.search, 'i');
-
-    //use _filter to filter the bangers
+    const regex = new RegExp(this.state.search, 'i'); //make a regex
     const filtered = _.filter(this.state.users, (user) => regex.test(user.username) || regex.test(user.travelling));
     return filtered.sort((a, b) => Date(a.last_login_date) < Date(b.last_login_date));
-    //state.bangers is what we want filter
     // everytime state changes, it calls the render function again, because it knows something has changed
   }
-
 
   render() {
     return (
 
-
       <section className="section-top">
         <div className="container">
           <h1 className="has-text-centered sub-title">Search by username or travelling preference</h1>
-
           <div className="columns">
             <div className="column search">
               <div className="container">
@@ -68,15 +57,10 @@ class IndexRoute extends React.Component {
               </div>
             </div>
           </div>
-
-
-
           <div className="columns is-multiline">
             {this.filterUsernames().map((user, i) =>
               <div key={i} className="column is-one-third animated slideInUp">
                 <Link to={`/users/${user._id}`}>
-
-
                   <div className="card">
                     <div className="card-image">
                       <figure className="image">
@@ -84,7 +68,6 @@ class IndexRoute extends React.Component {
                       </figure>
                     </div>
                     <div className="card-content">
-
                       <div className="media-content">
                         <p className="has-text-centered title is-4">{user.username}</p>
                         <p className="has-text-centered subtitle is-6">Last logged in:<br /><Timestamp time={user.last_login_date} precision={2} /></p>
@@ -92,21 +75,12 @@ class IndexRoute extends React.Component {
                         <Moment fromNow ago>{user.date}</Moment> old</p>
                         <p className="has-text-centered">Travelling with: {user.travelling}</p>
                         <p className="has-text-centered">location: </p>
-
                       </div>
-
-
                     </div>
                   </div>
-
-
                 </Link>
               </div>)}
           </div>
-
-
-
-
         </div>
       </section>
     );

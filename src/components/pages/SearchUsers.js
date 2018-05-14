@@ -3,14 +3,10 @@ import IndexRoute from '../../components/routes/IndexRoute';
 import Footer from '../../components/common/Footer';
 import '../../assets/scss/main.scss';
 
-// import ReactDOM from 'react-dom';
-// const User = require('../models/user');
-
 class AllUsers extends React.Component {
 
   render() {
     return (
-
       <main className="grey">
         <section className="hero hub-image">
           <div className="hero-body no-padding">
@@ -19,7 +15,6 @@ class AllUsers extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="section">
           <div className="columns">
             <div className="column"><IndexRoute /></div>
