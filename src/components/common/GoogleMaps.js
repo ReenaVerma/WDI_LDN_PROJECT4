@@ -177,7 +177,7 @@ class GoogleMap extends React.Component {
   // GEOLOCATION FUNCTION
   getLocation = () => {
     navigator.geolocation.getCurrentPosition(pos => {
-
+ 
       const that = this;
       const lat = pos.coords.latitude;
       const lng = pos.coords.longitude;

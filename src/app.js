@@ -25,7 +25,8 @@ class App extends React.Component {
           {/* <DarkSky /> */}
           <FlashMessages />
           <Switch>
-            <ProtectedRoute path="/hub" component={HubPage} />
+            {/* <ProtectedRoute path="/hub" component={HubPage} /> */}
+            <Route path="/hub" component={HubPage} />
             <ProtectedRoute path="/hub/:id" component={Show} />
             <ProtectedRoute path="/users/:id" component={UserPage} />
             <ProtectedRoute path="/users" component={SearchUsers} />
