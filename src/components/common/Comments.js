@@ -67,7 +67,7 @@ class Comments extends React.Component {
                   </figure>
                 </div>
                 <p>{message.content}</p>
-                <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete message</a>
+                <a href="" onClick={() => this.deleteComment(message._id)} className="is-right pink">delete your message</a>
               </div>
             </div>
           </div>
