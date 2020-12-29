@@ -11,7 +11,7 @@ const { dbURI, port } = require('./config/environment');
 const app = express();
 app.use(express.static(`${__dirname}/public`));
 
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.set('useCreateIndex', true);
 app.use(bodyParser.json());
 
@@ -36,3 +36,4 @@ module.exports = app;
 // module.exports = app;
 
 // NPM_CONFIG_PRODUCTION false
+// "bcrypt": "^1.0.3",
