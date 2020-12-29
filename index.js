@@ -12,6 +12,7 @@ const app = express();
 app.use(express.static(`${__dirname}/public`));
 
 mongoose.connect(dbURI);
+mongoose.set('useCreateIndex', true);
 app.use(bodyParser.json());
 
 app.use('/api', router);
@@ -33,3 +34,5 @@ module.exports = app;
 // app.listen(port, () => console.log(`Express running on port ${port}`));
 //
 // module.exports = app;
+
+// NPM_CONFIG_PRODUCTION false
