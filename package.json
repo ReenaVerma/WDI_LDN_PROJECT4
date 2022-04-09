@@ -55,7 +55,7 @@
     "jsonwebtoken": "^8.2.1",
     "loadash": "^1.0.0",
     "method-override": "^2.3.10",
-    "moment": "^2.22.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.14",
     "mongoose": "^5.0.13",
     "promises": "^0.2.5",
