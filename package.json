@@ -4,7 +4,7 @@
   "main": "index.js",
   "engines": {
     "node": "12.x"
-    },
+  },
   "scripts": {
     "start:client": "webpack-dev-server",
     "start:server": "nodemon",
@@ -33,7 +33,6 @@
     "ignore-styles": "^5.0.1",
     "jsdom": "^11.7.0",
     "mocha": "^5.0.5",
-    "node-sass": "^5.0.0",
     "nyc": "^11.6.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
