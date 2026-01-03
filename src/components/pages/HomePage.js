@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import FooterHomepage from '../../components/common/FooterHomepage';
-import '../../assets/scss/main.scss';
 
 class Home extends React.Component {
 

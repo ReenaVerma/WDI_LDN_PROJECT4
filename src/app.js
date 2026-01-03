@@ -14,6 +14,7 @@ import UserPage from './components/pages/UserPage';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Show from './components/auth/Show';
+import './assets/scss/main.scss';
 import 'bulma';
 
 class App extends React.Component {

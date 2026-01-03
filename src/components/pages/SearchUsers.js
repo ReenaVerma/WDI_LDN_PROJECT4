@@ -1,8 +1,6 @@
 import React from 'react';
 import IndexRoute from '../../components/routes/IndexRoute';
 import Footer from '../../components/common/Footer';
-import '../../assets/scss/main.scss';
-
 class AllUsers extends React.Component {
 
   render() {

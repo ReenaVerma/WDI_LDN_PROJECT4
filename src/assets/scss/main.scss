@@ -1,12 +1,5 @@
-@use "components/nav" as *;
-@use "components/google-maps" as *;
-@use "components/typography" as *;
-@use "components/headers" as *;
-@use "components/body" as *;
-@use "components/forms" as *;
-@use "components/footer" as *;
-@use "components/comments" as *;
 
+// Variable definitions (must be first before component imports)
 $white: #fff;
 $mint: #47c5ac;
 $aqua: #27FDF5;
@@ -20,5 +13,16 @@ $almost-black: #efefef;
 $black: #000;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Pacifico');
+
+// Component imports (after variables)
+@import "components/nav";
+@import "components/google-maps";
+@import "components/typography";
+@import "components/headers";
+@import "components/body";
+@import "components/forms";
+@import "components/footer";
+@import "components/comments";
+
 /* add your customization here... */
 

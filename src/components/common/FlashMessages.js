@@ -1,6 +1,5 @@
 import React from 'react';
 import Flash from '../../lib/Flash';
-import '../../assets/scss/main.scss';
 
 const FlashMessages = () => {
 

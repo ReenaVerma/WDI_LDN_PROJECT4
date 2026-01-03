@@ -2,7 +2,6 @@ import React from 'react';
 import ShowRoute from '../../components/routes/ShowRoute';
 import Comments from '../../components/common/Comments';
 import Footer from '../../components/common/Footer';
-import '../../assets/scss/main.scss';
 
 class IndividualUser extends React.Component {
 

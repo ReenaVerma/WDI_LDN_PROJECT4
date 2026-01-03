@@ -5,7 +5,6 @@ import Moment from 'react-moment';
 import Timestamp from 'react-timestamp';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import '../../assets/scss/main.scss';
 
 
 class IndexRoute extends React.Component {

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
 import Footer from '../../components/common/Footer';
-import '../../assets/scss/main.scss';
 import ReactFilestack from 'filestack-react';
 
 

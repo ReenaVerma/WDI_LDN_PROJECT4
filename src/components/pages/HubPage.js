@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Promise from 'bluebird';
-import '../../assets/scss/main.scss';
 
 import GoogleMaps from '../../components/common/GoogleMaps';
 import Footer from '../../components/common/Footer';

@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import Moment from 'react-moment';
-import '../../assets/scss/main.scss';
 
 class ShowRoute extends React.Component {
 

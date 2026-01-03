@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
-import '../../assets/scss/main.scss';
 import Flash from '../../lib/Flash';
 import FooterHomepage from '../../components/common/FooterHomepage';
 

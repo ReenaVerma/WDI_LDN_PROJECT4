@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import Auth from '../../lib/Auth';
-import '../../assets/scss/main.scss';
 
 
 class Comments extends React.Component {
