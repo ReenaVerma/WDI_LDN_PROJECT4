@@ -1,0 +1,141 @@
+
+.homepage-form {
+  margin: 0 auto;
+  width: 400px;
+  padding: 20px;
+
+    input {
+      background-color:rgba(255,255,255, 0.0) !important;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+      border-bottom: 1px solid $medium-grey;
+      color: $almost-black;
+      font-size: 14px;
+    }
+
+    input::placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: lighter;
+      color: $almost-black;
+      font-size: 14px;
+    }
+
+    input[type=text] {
+      color: $almost-black !important;
+    }
+}
+
+.search {
+    margin-top: 20px;
+
+    input {
+      background-color: none;
+      border: 0;
+      outline: none;
+      border-bottom: 1px solid $mint;
+      box-shadow: none;
+    }
+}
+
+.registration-form {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  border: 0px solid $medium-grey;
+  margin: 0 auto;
+  width: 600px;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+
+  input {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    color: $white;
+    border-bottom: 1px solid $medium-grey;
+    background-color:rgba(255,255,255, 0.0) !important;
+  }
+
+  input::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: $almost-black;
+    background-color: none;
+    font-size: 15px;
+    padding-left: -10px;
+  }
+
+  input[type=text] {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: $white !important;
+  }
+
+  label {
+    color: $white;
+  }
+
+  input.date {
+    color: $white;
+  }
+
+  .field {
+    margin-top: 20px;
+  }
+}
+
+/* register login form */
+.credentials-form {
+  margin: 50px auto;
+  width: 400px;
+  height: 200px;
+  background-color: rgba(0,0,0, 0.7);
+  padding: 20px;
+  border-radius: 5px;
+
+  input {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    color: $almost-black;
+    border-bottom: 1px solid $medium-grey;
+    background-color:rgba(255,255,255, 0.0) !important;
+  }
+
+  input::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: $almost-black;
+    background-color: none;
+    font-size: 14px;
+  }
+
+  input[type=text] {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: $white !important;
+    font-size: 14px;
+  }
+
+  label {
+    color: $white;
+  }
+
+}
+
+@media only screen and (max-width: 786px) {
+  .homepage-form {
+    width: 90%;
+  }
+
+  .registration-form {
+    width: 90%;
+    z-index: -1;
+  }
+
+  .credentials-form {
+    width: 90%;
+  }
+}

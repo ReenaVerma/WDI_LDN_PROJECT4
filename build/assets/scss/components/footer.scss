@@ -1,0 +1,20 @@
+footer {
+
+  height: 50px;
+  border-top: 1px solid $black;
+  background: $black;
+  padding: 5px;
+  position: relative;
+  bottom:0;
+  width: 100%;
+
+  p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  &.homepage {
+    position: absolute;
+  }
+}

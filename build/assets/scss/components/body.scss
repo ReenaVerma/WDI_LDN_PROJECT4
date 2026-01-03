@@ -1,0 +1,33 @@
+body {
+  font-family: 'Dosis', sans-serif;
+}
+
+.grey {
+  background-color: $grey;
+}
+
+.card {
+  background-color: $medium-grey;
+  padding: 0px;
+  border: none;
+}
+
+.box {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.grey-image {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+.is-rounded {
+  border-radius: 50px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .comments-section {
+    margin-bottom: -80px !important;
+  }
+}
