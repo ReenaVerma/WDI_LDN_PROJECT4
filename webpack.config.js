@@ -18,7 +18,8 @@ const CopyWebpack = new CopyWebpackPlugin({
 const HotModuleReplcement = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
+  mode: process.env.NODE_ENV || 'development',
   entry: './src/app.js',
   output: {
     // path: path.resolve('build'),

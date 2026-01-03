@@ -1,13 +1,15 @@
+@use "../variables.scss" as variables;
+
 body {
   font-family: 'Dosis', sans-serif;
 }
 
 .grey {
-  background-color: $grey;
+  background-color: variables.$grey;
 }
 
 .card {
-  background-color: $medium-grey;
+  background-color: variables.$medium-grey;
   padding: 0px;
   border: none;
 }

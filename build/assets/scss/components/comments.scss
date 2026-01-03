@@ -1,14 +1,16 @@
+@use '../variables.scss' as variables;
+
 .messages-title {
   font-family: 'Pacifico', cursive;
   font-size: 25px;
-  background-color: $mint;
+  background-color: variables.$mint;
   height: 50px;
-  color: $white;
+  color: variables.$white;
   padding: 5px;
 }
 
 .user-title {
-  border-bottom: 2px solid $lighter-grey;
+  border-bottom: 2px solid variables.$lighter-grey;
   height: 35px;
   padding: 5px;
 }
