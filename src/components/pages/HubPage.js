@@ -121,13 +121,6 @@ class Hub extends React.Component {
           places: data.restaurants.nearby_restaurants.slice(0, 6),
           articles: data.articles.collections
         });
-      })
-      .catch(err => {
-        console.error('Error fetching places:', err);
-        this.setState({
-          places: [],
-          articles: []
-        });
       });
   }
 
