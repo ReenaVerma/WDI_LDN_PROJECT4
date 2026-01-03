@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
     lat: { type: Number },
     lng: { type: Number }
   },
-  image: { type: String, required: true },
+  image: { type: String },
   messages: [ messageSchema ]
 });
 
