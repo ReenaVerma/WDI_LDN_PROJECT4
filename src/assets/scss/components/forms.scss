@@ -1,3 +1,5 @@
+@use '../variables.scss' as variables;
+
 .homepage-form {
   margin: 0 auto;
   width: 400px;
@@ -8,20 +10,20 @@
       border: 0;
       outline: 0;
       box-shadow: none;
-      border-bottom: 1px solid $medium-grey;
-      color: $almost-black;
+      border-bottom: 1px solid variables.$medium-grey;
+      color: variables.$almost-black;
       font-size: 14px;
     }
 
     input::placeholder {
       font-family: 'Open Sans', sans-serif;
       font-weight: lighter;
-      color: $almost-black;
+      color: variables.$almost-black;
       font-size: 14px;
     }
 
     input[type=text] {
-      color: $almost-black !important;
+      color: variables.$almost-black !important;
     }
 }
 
@@ -32,7 +34,7 @@
       background-color: none;
       border: 0;
       outline: none;
-      border-bottom: 1px solid $mint;
+      border-bottom: 1px solid  variables.$mint;
       box-shadow: none;
     }
 }
@@ -40,7 +42,7 @@
 .registration-form {
   font-family: 'Open Sans', sans-serif;
   font-weight: lighter;
-  border: 0px solid $medium-grey;
+  border: 0px solid variables.$medium-grey;
   margin: 0 auto;
   width: 600px;
   height: 100%;
@@ -52,15 +54,15 @@
     border: 0;
     outline: 0;
     box-shadow: none;
-    color: $white;
-    border-bottom: 1px solid $medium-grey;
+    color: variables.$white;
+    border-bottom: 1px solid variables.$medium-grey;
     background-color:rgba(255,255,255, 0.0) !important;
   }
 
   input::placeholder {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    color: $almost-black;
+    color: variables.$almost-black;
     background-color: none;
     font-size: 15px;
     padding-left: -10px;
@@ -69,15 +71,15 @@
   input[type=text] {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    color: $white !important;
+    color: variables.$white !important;
   }
 
   label {
-    color: $white;
+    color: variables.$white;
   }
 
   input.date {
-    color: $white;
+    color: variables.$white;
   }
 
   .field {
@@ -98,15 +100,15 @@
     border: 0;
     outline: 0;
     box-shadow: none;
-    color: $almost-black;
-    border-bottom: 1px solid $medium-grey;
+    color: variables.$almost-black;
+    border-bottom: 1px solid variables.$medium-grey;
     background-color:rgba(255,255,255, 0.0) !important;
   }
 
   input::placeholder {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    color: $almost-black;
+    color: variables.$almost-black;
     background-color: none;
     font-size: 14px;
   }
@@ -114,12 +116,12 @@
   input[type=text] {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    color: $white !important;
+    color:  variables.$white !important;
     font-size: 14px;
   }
 
   label {
-    color: $white;
+    color: variables.$white;
   }
 
 }

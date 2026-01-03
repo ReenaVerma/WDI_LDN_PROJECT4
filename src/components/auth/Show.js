@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
-// import '../../assets/scss/main.scss';
+
 
 class Show extends React.Component {
 

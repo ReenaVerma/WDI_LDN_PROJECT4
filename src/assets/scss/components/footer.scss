@@ -1,8 +1,10 @@
+@use '../variables.scss' as variables;
+
 footer {
 
   height: 50px;
-  border-top: 1px solid $black;
-  background: $black;
+  border-top: 1px solid variables.$black;
+  background: variables.$black;
   padding: 5px;
   position: relative;
   bottom:0;

@@ -3,7 +3,6 @@
 // import axios from 'axios';
 // import Promise from 'bluebird';
 // // import Timestamp from 'react-timestamp';
-// import '../../assets/scss/main.scss';
 //
 // import GoogleMaps from '../../components/common/GoogleMaps';
 // import Footer from '../../components/common/Footer';
