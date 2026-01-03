@@ -21,7 +21,8 @@ module.exports = {
   mode: 'development',
   entry: './src/app.js',
   output: {
-    path: path.resolve('build'),
+    // path: path.resolve('build'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'app.js',
     publicPath: '/'
   },
