@@ -1,0 +1,4 @@
+[build]
+  node_version = "12"
+  command = "yarn build"
+  publish = "build"
